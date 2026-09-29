@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHANMART – Your Marketplace. Your Choice.</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--or:#F58220;--nv:#0F2545;--bg:#F4F6F9;--card:#fff;--tx:#1b2433;--mu:#6b7686;--bd:#e3e7ee}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--card:#151d30;--tx:#e8ecf4;--mu:#98a3b8;--bd:#26314a}}
+:root[data-theme="dark"]{--bg:#0c1220;--card:#151d30;--tx:#e8ecf4;--mu:#98a3b8;--bd:#26314a}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:70px}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 14px;min-height:42px}
+.w{max-width:1200px;margin:0 auto;padding:0 14px}
+header{background:var(--nv);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.hd{display:flex;align-items:center;gap:10px;padding:10px 0}
+.logo{font-weight:800;font-size:22px;letter-spacing:.5px}.logo b{color:var(--or)}
+.sr{flex:1;display:flex}.sr input{flex:1;min-width:0;padding:10px 12px;border:0;border-radius:10px 0 0 10px;font:inherit;background:#fff;color:#111}
+.sr button{background:var(--or);color:#fff;border-radius:0 10px 10px 0}
+.ic{background:none;color:#fff;padding:8px;position:relative;font-size:18px}
+.bd{position:absolute;top:0;right:0;background:var(--or);color:#fff;border-radius:9px;font-size:11px;padding:0 5px}
+.cats{background:#0b1c38;overflow-x:auto;white-space:nowrap}.cats a{display:inline-block;color:#dfe6f3;padding:9px 12px;font-size:14px}
+.hide-m{display:none}@media(min-width:800px){.hide-m{display:inline-block}.bn{display:none!important}body{padding-bottom:0}}
+.hero{background:linear-gradient(120deg,var(--nv),#1d3d75);color:#fff;border-radius:16px;padding:28px 20px;margin:14px 0}
+.hero h1{margin:0 0 8px;font-size:clamp(22px,4vw,38px)}.hero p{color:#cfd9ec;margin:0 0 16px}
+.pr{background:var(--or);color:#fff}.ol{background:transparent;border:1px solid #fff;color:#fff}.sc{background:var(--nv);color:#fff}
+h2{margin:22px 0 10px;font-size:20px}
+.g{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(min-width:650px){.g{grid-template-columns:repeat(3,1fr)}}@media(min-width:1000px){.g{grid-template-columns:repeat(4,1fr)}}
+.cg{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)}@media(min-width:800px){.cg{grid-template-columns:repeat(6,1fr)}}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px;box-shadow:0 1px 4px #0001}
+.cat{text-align:center;cursor:pointer;font-size:13px}.cat i{display:block;font-size:30px;font-style:normal}
+.im{aspect-ratio:1;border-radius:10px;display:grid;place-items:center;font-size:54px;margin-bottom:8px;position:relative}
+.im img{border-radius:10px}
+.tg{position:absolute;top:6px;left:6px;background:var(--or);color:#fff;font-size:12px;padding:1px 7px;border-radius:8px}
+.hb{position:absolute;top:4px;right:4px;background:var(--card);padding:4px 8px;min-height:0;border-radius:50%}
+.nm{font-weight:600;font-size:14px;height:40px;overflow:hidden}.pz{color:var(--or);font-weight:800;font-size:16px}.old{color:var(--mu);text-decoration:line-through;font-size:12px}.mu{color:var(--mu);font-size:12px}
+.row{display:flex;gap:6px;margin-top:8px}.row button{flex:1;padding:8px;min-height:38px;font-size:13px}
+.tr{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}@media(min-width:800px){.tr{grid-template-columns:repeat(6,1fr)}}
+.st{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}@media(min-width:800px){.st{grid-template-columns:repeat(4,1fr)}}.st b{font-size:22px;display:block}
+.two{display:grid;gap:16px}@media(min-width:800px){.two{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid var(--bd);text-align:left}.ov{overflow-x:auto}
+.tab{display:flex;gap:6px;overflow-x:auto;margin:10px 0}.tab button{background:var(--card);border:1px solid var(--bd);color:var(--tx);white-space:nowrap}.tab .on{background:var(--nv);color:#fff}
+input,select,textarea{padding:10px;border:1px solid var(--bd);border-radius:10px;font:inherit;background:var(--card);color:var(--tx);width:100%;margin:4px 0}
+textarea{min-height:70px}
+.bn{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--bd);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:20}
+.bn button{flex:1;background:none;color:var(--tx);font-size:11px;position:relative;padding:6px 0}.bn span{display:block;font-size:20px}
+.emp{text-align:center;padding:40px 10px;color:var(--mu)}.emp span{font-size:50px;display:block}
+footer{background:var(--nv);color:#b9c4da;margin-top:30px;padding:24px 0;font-size:13px}footer b{color:#fff}
+.ok{color:#188a4a;font-weight:600}.er{color:#c0392b}
+.stp{display:flex;gap:4px;margin:10px 0}.stp div{flex:1;height:6px;border-radius:3px;background:var(--bd)}.stp .on{background:var(--or)}
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--nv);color:#fff;padding:10px 16px;border-radius:20px;opacity:0;transition:.2s;z-index:30}
+.fl{display:grid;gap:14px}@media(min-width:800px){.fl{grid-template-columns:230px 1fr}}
+summary{cursor:pointer;font-weight:700;min-height:32px}
+.sk{height:220px;background:linear-gradient(90deg,var(--card),var(--bd),var(--card));background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.gal{display:flex;gap:6px;overflow-x:auto;margin-top:6px}.gal img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:1px solid var(--bd)}
+video{max-width:100%;border-radius:10px;margin-top:8px}
+.thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;flex:none}
+</style></head><body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<header><div class="w"><div class="hd">
+<a href="#/" class="logo" aria-label="SHANMART home">SHAN<b>MART</b></a>
+<form class="sr" onsubmit="event.preventDefault();go('#/shop/'+encodeURIComponent(q.value))"><input id="q" placeholder="Search products, brands, categories..." aria-label="Search"><button aria-label="Search">🔍</button></form>
+<a class="hide-m" href="#/sell" style="font-size:13px;color:var(--or)">Sell on SHANMART</a>
+<a class="ic" href="#/notif" aria-label="Notifications">🔔<span class="bd" id="nb"></span></a>
+<a class="ic" href="#/wish" aria-label="Wishlist">♡<span class="bd" id="wc"></span></a>
+<a class="ic" href="#/cart" aria-label="Cart">🛒<span class="bd" id="cc"></span></a>
+<a class="ic" href="#/account" aria-label="Account">👤</a>
+</div></div>
+<nav class="cats"><div class="w" id="cn"></div></nav></header>
+<main class="w" id="app"></main>
+<footer><div class="w"><div class="two" style="grid-template-columns:repeat(2,1fr)"><div><b>SHANMART</b><br><a href="#/help">About</a> · <a href="#/contact">Contact</a> · <a href="#/sell">Sell on SHANMART</a><br><br><b>Customer Service</b><br><a href="#/help">Help Center</a> · <a href="#/account">Order Tracking</a> · <a href="#/legal/refund">Returns</a></div><div><b>Legal</b><br><a href="#/legal/privacy">Privacy</a> · <a href="#/legal/terms">Terms</a> · <a href="#/legal/refund">Refund Policy</a><br><br><b>Social</b><br>Facebook · Instagram · TikTok · YouTube · <a href="#" id="wa">WhatsApp</a></div></div><p>© SHANMART. All Rights Reserved. Demo data only where noted – no real payments.</p><button class="sc" style="background:#1d3d75" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">Toggle theme</button></div></footer>
+<nav class="bn"><button onclick="go('#/')"><span>🏠</span>Home</button><button onclick="go('#/shop')"><span>▦</span>Categories</button><button onclick="q.focus();scrollTo(0,0)"><span>🔍</span>Search</button><button onclick="go('#/cart')"><span>🛒</span>Cart</button><button onclick="go('#/account')"><span>👤</span>Account</button></nav>
+<div id="toast"></div>
+<script>
+/* ============================================================================
+   SHANMART — single clean build. Every function below is defined exactly
+   once (no override chains). Sections:
+   1. Supabase client        6. Address actions
+   2. Config & demo data     7. Cart / wishlist / reviews
+   3. App state (S, F)       8. Seller & Admin actions
+   4. Small helpers          9. Checkout (one placeStep)
+   5. Supabase data loaders 10. Views (V) + Router (one route) + Init
+   ============================================================================ */
+
+/* ---------- 1. SUPABASE CLIENT ---------- */
+const SB_URL='https://ltwkmtkxmbbdftnjxvmz.supabase.co';
+const SB_KEY='sb_publishable_MwDZJE9BihFIj7ep19V2uQ_Ru_csEz8'; // publishable/anon key only — safe for frontend code, never a secret/service_role key
+const sbClient=(typeof window.supabase!=='undefined')?window.supabase.createClient(SB_URL,SB_KEY):null;
+if(!sbClient) console.warn('SHANMART: Supabase client script did not load — running in local demo mode only.');
+
+/* ---------- 2. CONFIG & DEMO DATA ---------- */
+const CFG={whatsapp:'94770000000',delivery:350};
+const CFG2={approval:true};
+const MY='Colombo Tech Hub'; // local demo "logged in seller" identity used for the Seller Hub demo
+const STATUS_KEYS=['pending','confirmed','processing','shipped','out_for_delivery','delivered','cancelled']; // must match the orders.status check constraint
+const ST=['Pending','Confirmed','Processing','Shipped','Out for Delivery','Delivered','Cancelled'];
+const DIST='Ampara,Anuradhapura,Badulla,Batticaloa,Colombo,Galle,Gampaha,Hambantota,Jaffna,Kalutara,Kandy,Kegalle,Kilinochchi,Kurunegala,Mannar,Matale,Matara,Monaragala,Mullaitivu,Nuwara Eliya,Polonnaruwa,Puttalam,Ratnapura,Trincomalee,Vavuniya'.split(',');
+const MODELS={User:'id,email,phone,role(customer|seller|admin)',SellerProfile:'userId,businessName,status(pending|active|rejected)',Product:'id,sellerId,categoryId,name,price,stock,status(draft|pending|published|rejected|deleted)',Category:'id,name,icon',Order:'id,orderNo,customerId,addressId,status,total',OrderItem:'orderId,productId,sellerId,qty,unitPrice,commissionAmount,sellerEarning',Coupon:'code,type(pct|fixed),value,minOrder,expiresAt,usageLimit,usedCount',CommissionRule:'scope(global|category|seller),targetId,percent,fixedFee',Review:'productId,userId,rating,text,verifiedPurchase',Address:'userId,name,phone,line1,city,district,postalCode',Notification:'userId,type,text,read'};
+
+const CATS=[['Electronics','📱'],['Fashion','👕'],['Beauty','💄'],['Home & Garden','🛋️'],['Grocery','🛒'],['Health','💊'],['Sports','⚽'],['Kids','🧸']];
+const SUB={Electronics:['Mobile Phones','Laptops','Accessories','TVs','Cameras'],Fashion:["Men's Fashion","Women's Fashion",'Kids','Shoes','Bags'],Beauty:['Skincare','Haircare','Cosmetics'],'Home & Garden':['Furniture','Kitchen','Home Decor','Gardening']};
+const SELL=['Colombo Tech Hub','Kandy Crafts','Ceylon Naturals','Galle Fashion House'];
+const SUBMAP={1:'Accessories',2:'Mobile Phones',3:"Men's Fashion",4:"Women's Fashion",5:'Skincare',6:'Haircare',7:'Furniture',8:'Kitchen'};
+const P=[
+[1,'Wireless Earbuds Pro X',8900,12500,'Electronics','🎧',4.5,212,0,'#dbeafe'],
+[2,'Samsung Galaxy A15 128GB',54900,62000,'Electronics','📱',4.4,98,0,'#e0e7ff'],
+[3,'Ceylon Cotton Sarong (Men)',2450,2900,'Fashion','👘',4.7,340,3,'#fde8d0'],
+[4,'Handloom Saree – Kandyan Style',12800,15000,'Fashion','🥻',4.8,76,3,'#fce7f3'],
+[5,'Ceylon Cinnamon Face Serum',1990,2500,'Beauty','🧴',4.6,158,2,'#dcfce7'],
+[6,'Coconut Hair Oil 500ml',890,1050,'Beauty','🥥',4.5,410,2,'#fef9c3'],
+[7,'Teak Wood Coffee Table',28500,32000,'Home & Garden','🪑',4.6,41,1,'#fde8d0'],
+[8,'Stainless Rice Cooker 1.8L',7450,8900,'Home & Garden','🍚',4.3,187,1,'#e5e7eb'],
+[9,'Ceylon Black Tea 400g',1250,1400,'Grocery','🍵',4.9,520,2,'#dcfce7'],
+[10,'Cricket Bat – English Willow',18900,22500,'Sports','🏏',4.5,64,0,'#fde8d0'],
+[11,'Kids Building Blocks 120pc',2990,3500,'Kids','🧱',4.7,132,3,'#fee2e2'],
+[12,'Vitamin C 1000mg (60 tabs)',1750,2100,'Health','💊',4.4,205,2,'#e0f2fe']
+].map(a=>({id:a[0],name:a[1],price:a[2],old:a[3],cat:a[4],sub:SUBMAP[a[0]]||'',img:a[5],rating:a[6],rev:a[7],seller:SELL[a[8]],bg:a[9],stock:a[0]==10?0:20,photos:[],video:'',desc:''}));
+const R={}; P.forEach(p=>R[p.id]=[{n:'Nimali, Colombo',r:5,t:'Excellent quality, arrived in 3 days.',v:1},{n:'Kasun, Kandy',r:4,t:'Good value for the price.',v:1}]);
+
+const COM={g:8,fixed:0,cat:{Electronics:6,Fashion:10},seller:{'Colombo Tech Hub':5}};
+let COUPONS=[
+ {code:'SHAN10',type:'pct',value:10,min:0,exp:'2026-12-31',limit:200,used:34,active:1,seller:'',cat:''},
+ {code:'WELCOME300',type:'fixed',value:300,min:2000,exp:'2026-12-31',limit:500,used:87,active:1,seller:'',cat:''},
+ {code:'TECH15',type:'pct',value:15,min:0,exp:'2026-10-31',limit:50,used:6,active:1,seller:'Colombo Tech Hub',cat:'Electronics'},
+ {code:'EXPIRED5',type:'pct',value:5,min:0,exp:'2026-01-01',limit:50,used:12,active:1,seller:'',cat:''}
+];
+let BANNERS=[
+ {title:'Everything You Need. All in One Marketplace.',sub:'Discover products from trusted sellers across Sri Lanka.',active:1},
+ {title:'Vesak Mega Sale – up to 40% off',sub:'Islandwide delivery on all Vesak specials.',active:1}
+];
+
+/* ---------- 3. APP STATE ---------- */
+let S={
+  cart:{}, wish:{}, follow:{},
+  orders:[{no:'SM-100231',date:'2026-09-18',total:10140,status:3,items:'Wireless Earbuds Pro X'},{no:'SM-100198',date:'2026-09-02',total:1250,status:6,items:'Ceylon Black Tea 400g'}],
+  pending:{ps:[['Kandy Crafts','Handloom Sarong Set'],['Ceylon Naturals','Herbal Balm Pack']],pp:[['Galle Fashion House','Batik Shirt']]},
+  notes:[{t:'Welcome to SHANMART! Explore Flash Deals.',u:1},{t:'Your order SM-100231 has shipped.',u:1}],
+  profile:{name:'Sanduni Perera',phone:'0771234567',email:'sanduni@example.com'},
+  addresses:[{id:1,name:'Sanduni Perera',phone:'0771234567',line1:'12 Temple Road',city:'Colombo',district:'Colombo',postal:'00300'}],
+  selAddr:1, defAddr:1, featP:P.slice(4,12).map(p=>p.id), featS:SELL.slice(),
+  edit:0, aEdit:0, sellerOk:0, step:1, coupon:null, last:0, lastAddr:'', lastLive:false,
+  // Supabase-backed state (all start empty/null; populated only once signed in)
+  session:null, authView:'login', authBusy:false, authErr:'', authMsg:'',
+  realAddresses:null, realOrders:[], adminOrders:[], adminOrdersErr:'', adminOrdersLoading:false
+};
+const F={cats:[],sub:[],min:0,max:1e9,rt:0,sl:'',stock:0};
+const localDefaultProfile={name:'Sanduni Perera',phone:'0771234567',email:'sanduni@example.com'};
+let adminOrdersFetchedOnce=false;
+
+/* ---------- 4. SMALL HELPERS ---------- */
+const $=id=>document.getElementById(id);
+function go(h){location.hash=h}
+function toast(t){const e=$('toast');e.textContent=t;e.style.opacity=1;setTimeout(()=>e.style.opacity=0,1400)}
+const rs=n=>'Rs. '+n.toLocaleString('en-LK');
+const stars=r=>'★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r));
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const live=p=>!p.status||p.status=='pub';
+const rate=p=>COM.seller[p.seller]??COM.cat[p.cat]??COM.g;
+const comm=p=>Math.round(p.price*rate(p)/100)+COM.fixed;
+const media=(p,big)=>p.photos&&p.photos.length?`<img src="${p.photos[0]}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover;${big?'':'border-radius:10px'}">`:`<span>${p.img}</span>`;
+const card=p=>{const d=Math.round((1-p.price/p.old)*100);return `<div class="c"><a href="#/p/${p.id}"><div class="im" style="background:${p.bg}"><span class="tg">-${d}%</span>${media(p)}</div><div class="nm">${esc(p.name)}</div></a>
+<button class="hb" onclick="tw(${p.id})" aria-label="Wishlist">${S.wish[p.id]?'❤️':'♡'}</button>
+<div class="pz">${rs(p.price)} <span class="old">${rs(p.old)}</span></div><div class="mu">${stars(p.rating)} (${p.rev})</div><div class="mu">${p.seller} · Islandwide delivery</div>
+<div class="row">${p.stock?`<button class="sc" onclick="add(${p.id})">Add to Cart</button><button class="pr" onclick="add(${p.id},1)">Buy Now</button>`:'<button disabled>Out of stock</button>'}</div></div>`};
+const empty=(i,t,b,h)=>`<div class="emp"><span>${i}</span><p>${t}</p>${h?`<button class="pr" onclick="go('${h}')">${b}</button>`:''}</div>`;
+const sp=()=>new URLSearchParams(location.hash.split('?')[1]||'');
+const bell=()=>{$('nb').textContent=S.notes.filter(n=>n.u).length||''};
+const notify=t=>{S.notes.unshift({t,u:1});bell()};
+const badges=()=>{const c=Object.values(S.cart).reduce((a,b)=>a+b,0),w=Object.keys(S.wish).length;$('cc').textContent=c||'';$('wc').textContent=w||''};
+const validEmail=e=>/^\S+@\S+\.\S+$/.test(e);
+function friendlyAuthError(e){
+  const m=(e&&e.message)||'Something went wrong. Please try again.';
+  if(/invalid login credentials/i.test(m)) return 'Incorrect email or password.';
+  if(/email not confirmed/i.test(m)) return 'Please confirm your email first — check your inbox for the confirmation link.';
+  if(/user already registered/i.test(m)) return 'An account with this email already exists. Try logging in instead.';
+  if(/password should be at least/i.test(m)) return m;
+  if(/rate limit|security purposes/i.test(m)) return 'Too many attempts — please wait a minute and try again.';
+  return m;
+}
+function renderNav(){$('cn').innerHTML='<a href="#/shop">All Categories</a>'+CATS.map(c=>`<a href="#/shop/${encodeURIComponent(c[0])}">${c[0]}</a>`).join('')+'<a href="#/seller">Seller Hub</a><a href="#/admin">Admin</a>'}
+const subs=()=>{$('fs').innerHTML=(SUB[$('fc').value]||['General']).map(s=>`<option>${s}</option>`).join('')};
+const tf=i=>{const c=CATS[i][0],x=F.cats.indexOf(c);x<0?F.cats.push(c):F.cats.splice(x,1);route()};
+window.SUBFILTER_OPTS=[];
+const subRow=sc=>{let i=window.SUBFILTER_OPTS.indexOf(sc);if(i<0){i=window.SUBFILTER_OPTS.length;window.SUBFILTER_OPTS.push(sc)}return `<label style="display:block"><input type="checkbox" style="width:auto" ${F.sub.includes(sc)?'checked':''} onchange="tsub(window.SUBFILTER_OPTS[${i}])"> ${sc}</label>`};
+const tsub=name=>{const x=F.sub.indexOf(name);x<0?F.sub.push(name):F.sub.splice(x,1);route()};
+const sf=(k,v)=>{F[k]=v;route()};
+function findCoupon(code){return COUPONS.find(c=>c.code==code.trim().toUpperCase())}
+function couponError(c,sub){if(!c)return 'Coupon not found.';if(!c.active)return 'This coupon is no longer active.';
+if(new Date(c.exp)<new Date())return 'This coupon expired on '+c.exp+'.';
+if(c.used>=c.limit)return 'This coupon has reached its usage limit.';
+if(sub<c.min)return 'Minimum order of '+rs(c.min)+' required for this coupon.';
+const ids=Object.keys(S.cart);
+if(c.seller&&!ids.some(i=>P[i-1].seller==c.seller))return 'This coupon only applies to items from '+c.seller+'.';
+if(c.cat&&!ids.some(i=>P[i-1].cat==c.cat))return 'This coupon only applies to '+c.cat+' items.';
+return ''}
+function discFor(c,sub){if(!c)return 0;if(c.type=='pct')return Math.round(sub*c.value/100);return Math.min(c.value,sub)}
+function totalsX(applyDiscount){let sub=0;for(const id in S.cart)sub+=P[id-1].price*S.cart[id];const c=S.coupon?findCoupon(S.coupon):null,err=c?couponError(c,sub):'';const dis=(c&&!err&&applyDiscount!==false)?discFor(c,sub):0,del=sub?CFG.delivery:0;return{sub,dis,del,tot:sub-dis+del}}
+function applyCoupon(){const code=$('cp').value.trim();if(!code)return;const c=findCoupon(code),t=totalsX(false);const e=couponError(c,t.sub);if(e){toast(e);S.coupon=null}else{S.coupon=c.code;toast('Coupon applied: -'+rs(discFor(c,t.sub)))}route()}
+function fileToDataURL(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)})}
+
+/* ---------- localStorage persistence (demo-only; not a real database) ---------- */
+const LSK='shanmart_demo_v1';
+function saveAll(){try{localStorage.setItem(LSK,JSON.stringify({cart:S.cart,wish:S.wish,orders:S.orders,pending:S.pending,notes:S.notes,follow:S.follow,profile:S.profile,addresses:S.addresses,selAddr:S.selAddr,defAddr:S.defAddr,featP:S.featP,featS:S.featS,P,CATS,SUB,COM,R,COUPONS,BANNERS}))}catch(e){}}
+function loadAll(){try{const raw=localStorage.getItem(LSK);if(!raw)return;const d=JSON.parse(raw);
+if(d.cart)Object.assign(S.cart,d.cart);if(d.wish)Object.assign(S.wish,d.wish);if(d.orders)S.orders=d.orders;if(d.pending)S.pending=d.pending;if(d.notes)S.notes=d.notes;if(d.follow)S.follow=d.follow;
+if(d.profile)S.profile=d.profile;if(d.addresses)S.addresses=d.addresses;if(d.selAddr)S.selAddr=d.selAddr;if(d.defAddr)S.defAddr=d.defAddr;if(d.featP)S.featP=d.featP;if(d.featS)S.featS=d.featS;
+if(d.CATS){CATS.length=0;d.CATS.forEach(c=>CATS.push(c))}
+if(d.SUB){Object.keys(SUB).forEach(k=>delete SUB[k]);Object.assign(SUB,d.SUB)}
+if(d.COM)Object.assign(COM,d.COM);
+if(d.P){P.length=0;d.P.forEach(p=>P.push(p))}
+if(d.R){Object.keys(R).forEach(k=>delete R[k]);Object.assign(R,d.R)}
+if(d.COUPONS)COUPONS=d.COUPONS;
+if(d.BANNERS)BANNERS=d.BANNERS;
+}catch(e){}}
+
+/* ---------- 5. SUPABASE DATA LOADERS (all safe: never throw past their own try/catch) ---------- */
+async function loadRealProfile(){
+  if(!sbClient||!S.session) return;
+  try{
+    const {data}=await sbClient.from('profiles').select('*').eq('id',S.session.user.id).single();
+    if(data) S.profile={name:data.name||S.session.user.email,phone:data.phone||'',email:data.email||S.session.user.email};
+    else S.profile={name:S.session.user.email,phone:'',email:S.session.user.email};
+  }catch(e){ S.profile={name:S.session.user.email,phone:'',email:S.session.user.email}; }
+}
+async function loadRealAddresses(){
+  if(!sbClient||!S.session) return;
+  try{
+    const {data,error}=await sbClient.from('addresses').select('*').eq('user_id',S.session.user.id).order('created_at');
+    if(!error) S.realAddresses=(data||[]).map(a=>({id:a.id,name:a.name,phone:a.phone,line1:a.line1,city:a.city,district:a.district,postal:a.postal_code,is_default:a.is_default}));
+  }catch(e){}
+}
+async function loadRealOrders(){
+  if(!sbClient||!S.session){ S.realOrders=[]; return; }
+  try{
+    const {data,error}=await sbClient.from('orders').select('*, order_items(qty, products(name))').eq('customer_id',S.session.user.id).order('created_at',{ascending:false});
+    if(!error) S.realOrders=(data||[]).map(o=>({no:o.order_no,date:(o.created_at||'').slice(0,10),total:Number(o.total),
+      status:STATUS_KEYS.indexOf(o.status),
+      items:(o.order_items||[]).map(it=>(it.products&&it.products.name)||'Item').join(', '),addr:'',_real:true}));
+  }catch(e){ S.realOrders=[]; }
+}
+async function loadAdminOrders(){
+  if(!sbClient||!S.session){ S.adminOrders=[]; return; }
+  S.adminOrdersLoading=true;
+  try{
+    const {data,error}=await sbClient.from('orders').select('*, order_items(qty, products(name))').order('created_at',{ascending:false});
+    if(error) throw error;
+    S.adminOrders=(data||[]).map(o=>({id:o.id,no:o.order_no,date:(o.created_at||'').slice(0,10),total:Number(o.total),
+      statusIdx:STATUS_KEYS.indexOf(o.status),customerId:o.customer_id,
+      items:(o.order_items||[]).map(it=>(it.products&&it.products.name)||'Item').join(', ')}));
+    S.adminOrdersErr='';
+  }catch(e){
+    S.adminOrders=[];
+    S.adminOrdersErr='Could not load live orders ('+((e&&e.message)||'unknown error')+'). Showing local demo orders below instead.';
+  }
+  S.adminOrdersLoading=false; route();
+}
+async function adminSetOrderStatus(orderId,idxStr){
+  const idx=+idxStr, newStatus=STATUS_KEYS[idx];
+  if(!sbClient||!S.session||!newStatus) return;
+  const prev=S.adminOrders.find(o=>o.id===orderId);
+  try{
+    const {error}=await sbClient.from('orders').update({status:newStatus}).eq('id',orderId);
+    if(error) throw error;
+    try{
+      // Best-effort: the notifications table has no client-side INSERT policy for
+      // writing to another user's feed (by design), so this is expected to fail
+      // silently under RLS unless a DB trigger is added for it.
+      if(prev) await sbClient.from('notifications').insert({user_id:prev.customerId,type:'order_status',text:'Your order '+prev.no+' is now '+ST[idx]+'.'});
+    }catch(e2){}
+    toast('Order status updated');
+    await loadAdminOrders();
+  }catch(e){
+    toast('Could not update order status ('+((e&&e.message)||'error')+')');
+  }
+}
+async function loadRealCatalogue(){
+  if(!sbClient) return;
+  try{
+    const {data,error}=await sbClient.from('categories').select('id,name,icon,sort_order,subcategories(name)').order('sort_order');
+    if(!error && data && data.length){
+      CATS.length=0; Object.keys(SUB).forEach(k=>delete SUB[k]);
+      data.forEach(c=>{ CATS.push([c.name,c.icon||'📦']); SUB[c.name]=(c.subcategories||[]).map(s=>s.name); });
+      renderNav();
+    }
+  }catch(e){}
+  try{
+    const {data,error}=await sbClient.from('commission_rules').select('scope,target_id,percent,fixed_fee');
+    if(!error && data && data.length){
+      const g=data.find(r=>r.scope==='global'); if(g){COM.g=Number(g.percent);COM.fixed=Number(g.fixed_fee)||0;}
+      const {data:cats}=await sbClient.from('categories').select('id,name');
+      const idToName={}; (cats||[]).forEach(c=>idToName[c.id]=c.name);
+      data.filter(r=>r.scope==='category').forEach(r=>{ if(idToName[r.target_id]) COM.cat[idToName[r.target_id]]=Number(r.percent); });
+    }
+  }catch(e){}
+  route();
+}
+async function loadRealProducts(){
+  if(!sbClient) return;
+  try{
+    const {data,error}=await sbClient.from('products')
+      .select('id,name,description,price,compare_at_price,stock,status,rating_avg,rating_count,category_id,subcategory_id,categories(name),subcategories(name),seller_profiles(business_name),product_media(storage_path,type,sort_order)')
+      
+    if(error||!data||!data.length) return; // nothing seeded yet — demo catalogue stays exactly as-is
+    data.forEach(row=>{
+      const photos=(row.product_media||[]).filter(m=>m.type==='image').sort((a,b)=>a.sort_order-b.sort_order)
+        .map(m=>SB_URL+'/storage/v1/object/public/product-images/'+m.storage_path);
+      const vidRow=(row.product_media||[]).find(m=>m.type==='video');
+      P.push({
+        id:P.length+1, sbId:row.id,
+        name:row.name, desc:row.description||'', price:Number(row.price), old:Number(row.compare_at_price||row.price),
+        cat:(row.categories&&row.categories.name)||'Other', sub:(row.subcategories&&row.subcategories.name)||'',
+        seller:(row.seller_profiles&&row.seller_profiles.business_name)||'SHANMART Seller',
+        img:'📦', bg:'#e5e7eb', photos, video:vidRow?SB_URL+'/storage/v1/object/public/product-videos/'+vidRow.storage_path:'',
+        rating:Number(row.rating_avg)||0, rev:Number(row.rating_count)||0, stock:row.stock, status:row.status==='published'?'pub':row.status==='pending'?'pending':'draft'
+      });
+      R[P.length]=R[P.length]||[];
+    });
+    renderNav(); route();
+  }catch(e){}
+}
+async function initAuth(){
+  if(!sbClient) return;
+  try{
+    const {data:{session}}=await sbClient.auth.getSession();
+    S.session=session;
+    if(session){ await loadRealProfile(); await loadRealAddresses(); await loadRealOrders(); }
+  }catch(e){}
+  sbClient.auth.onAuthStateChange(async(event,session)=>{
+    S.session=session;
+    sbClient.auth.onAuthStateChange(async(event,session)=>{
+  S.session=session;
+
+  if(event==='PASSWORD_RECOVERY'){
+    S.authView='reset';
+    go('#/account');
+    return;
+  }
+
+  if(session){
+    await loadRealProfile();
+    await loadRealAddresses();
+    await loadRealOrders();
+
+    if(event==='SIGNED_IN' && (!location.hash || location.hash==='#/')){
+      go('#/account');
+    }
+  }
+
+  route();
+});
+route();
+    route();
+  });
+  route();
+}
+
+/* ---------- auth actions ---------- */
+function setAuthErr(m){ S.authErr=m; route(); }
+async function doSignup(){
+  if(!sbClient) return;
+  const email=$('su_email').value.trim(), pw=$('su_pw').value, name=$('su_name').value.trim();
+  S.authErr=''; S.authMsg='';
+  if(!name) return setAuthErr('Please enter your name.');
+  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
+  if(pw.length<6) return setAuthErr('Password must be at least 6 characters.');
+  S.authBusy=true; route();
+  const {data,error}=await sbClient.auth.signUp({email,password:pw,options:{data:{name},emailRedirectTo:location.origin+location.pathname}});
+  S.authBusy=false;
+  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
+  if(data.session){ S.authMsg='Account created — you are signed in.'; }
+  else { S.authMsg='Account created. Check '+email+' for a confirmation link before logging in.'; S.authView='login'; }
+  route();
+}
+async function doLogin(){
+  if(!sbClient) return;
+  const email=$('li_email').value.trim(), pw=$('li_pw').value;
+  S.authErr=''; S.authMsg='';
+  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
+  if(!pw) return setAuthErr('Enter your password.');
+  S.authBusy=true; route();
+  const {error}=await sbClient.auth.signInWithPassword({email,password:pw});
+  S.authBusy=false;
+  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
+  go('#/account');
+}
+async function doLogout(){
+  if(!sbClient) return;
+  await sbClient.auth.signOut();
+  S.session=null; S.profile=Object.assign({},localDefaultProfile); S.realOrders=[]; S.realAddresses=null;
+  toast('Signed out'); go('#/');
+}
+async function doForgot(){
+  if(!sbClient) return;
+  const email=$('fp_email').value.trim(); S.authErr=''; S.authMsg='';
+  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
+  S.authBusy=true; route();
+  const {error}=await sbClient.auth.resetPasswordForEmail(email,{redirectTo:'https://silver-mochi-638956.netlify.app/'});
+  S.authBusy=false;
+  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
+  S.authMsg='Password reset link sent to '+email+'. Check your inbox.'; route();
+}
+async function doReset(){
+  if(!sbClient) return;
+  const pw=$('np_pw').value; S.authErr=''; S.authMsg='';
+  if(pw.length<6) return setAuthErr('Password must be at least 6 characters.');
+  S.authBusy=true; route();
+  const {error}=await sbClient.auth.updateUser({password:pw});
+  S.authBusy=false;
+  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
+  S.authMsg='Password updated — you are signed in.'; S.authView='login'; go('#/account');
+}
+function authForms(){
+  if(S.authView==='reset') return `<h2>Set a New Password</h2><div class="c">
+    <input id="np_pw" type="password" placeholder="New password (min 6 characters)">
+    ${S.authErr?`<p class="er">${S.authErr}</p>`:''}${S.authMsg?`<p class="ok">${S.authMsg}</p>`:''}
+    <button class="pr" style="width:100%" onclick="doReset()" ${S.authBusy?'disabled':''}>${S.authBusy?'Updating…':'Update password'}</button></div>`;
+  if(S.authView==='forgot') return `<h2>Reset Password</h2><div class="c">
+    <input id="fp_email" type="email" placeholder="Your account email">
+    ${S.authErr?`<p class="er">${S.authErr}</p>`:''}${S.authMsg?`<p class="ok">${S.authMsg}</p>`:''}
+    <button class="pr" style="width:100%" onclick="doForgot()" ${S.authBusy?'disabled':''}>${S.authBusy?'Sending…':'Send reset link'}</button>
+    <button style="width:100%;margin-top:8px" onclick="S.authView='login';S.authErr='';S.authMsg='';route()">Back to login</button></div>`;
+  const tab=S.authView==='signup'?'signup':'login';
+  return `<h2>Welcome to SHANMART</h2><div class="tab"><button class="${tab=='login'?'on':''}" onclick="S.authView='login';S.authErr='';S.authMsg='';route()">Log In</button><button class="${tab=='signup'?'on':''}" onclick="S.authView='signup';S.authErr='';S.authMsg='';route()">Sign Up</button></div>
+  <div class="c">${tab=='login'?`
+    <input id="li_email" type="email" placeholder="Email" autocomplete="username">
+    <input id="li_pw" type="password" placeholder="Password" autocomplete="current-password">
+    ${S.authErr?`<p class="er">${S.authErr}</p>`:''}${S.authMsg?`<p class="ok">${S.authMsg}</p>`:''}
+    <button class="pr" style="width:100%" onclick="doLogin()" ${S.authBusy?'disabled':''}>${S.authBusy?'Logging in…':'Log In'}</button>
+    <button style="width:100%;margin-top:8px" onclick="S.authView='forgot';S.authErr='';S.authMsg='';route()">Forgot password?</button>`:`
+    <input id="su_name" placeholder="Full name">
+    <input id="su_email" type="email" placeholder="Email" autocomplete="username">
+    <input id="su_pw" type="password" placeholder="Password (min 6 characters)" autocomplete="new-password">
+    ${S.authErr?`<p class="er">${S.authErr}</p>`:''}${S.authMsg?`<p class="ok">${S.authMsg}</p>`:''}
+    <button class="pr" style="width:100%" onclick="doSignup()" ${S.authBusy?'disabled':''}>${S.authBusy?'Creating account…':'Create Account'}</button>`}
+  </div>${!sbClient?'<p class="mu">Live sign-in is temporarily unavailable — the Supabase connection did not load.</p>':''}`;
+}
+
+/* ---------- 6. ADDRESS ACTIONS (one definition each; branch to Supabase when signed in) ---------- */
+function saveProfile(){const n=$('pn').value.trim(),p=$('pp').value.trim().replace(/[\s-]/g,''),e=$('pe').value.trim();
+if(!n)return $('perr').textContent='Please enter your name.';
+if(!/^(0|\+94)7\d{8}$/.test(p))return $('perr').textContent='Enter a valid Sri Lankan mobile number, e.g. 0771234567.';
+if(!/^\S+@\S+\.\S+$/.test(e))return $('perr').textContent='Enter a valid email address.';
+S.profile={name:n,phone:p,email:e};toast('Profile updated');go('#/account')}
+
+async function saveAddr(){
+  const v=i=>$(i).value.trim(), ph=v('aph').replace(/[\s-]/g,'');
+  if(!v('an')||!v('al1')||!v('ac')||!v('apo')) return $('aerr').textContent='Please fill in all address fields.';
+  if(!/^(0|\+94)7\d{8}$/.test(ph)) return $('aerr').textContent='Enter a valid Sri Lankan mobile number.';
+  const o={name:v('an'),phone:ph,line1:v('al1'),city:v('ac'),district:$('ad').value,postal:v('apo')};
+  if(sbClient && S.session){
+    try{
+      if(S.aEdit){
+        await sbClient.from('addresses').update({name:o.name,phone:o.phone,line1:o.line1,city:o.city,district:o.district,postal_code:o.postal}).eq('id',S.aEdit).eq('user_id',S.session.user.id);
+      }else{
+        await sbClient.from('addresses').insert({user_id:S.session.user.id,name:o.name,phone:o.phone,line1:o.line1,city:o.city,district:o.district,postal_code:o.postal});
+      }
+      await loadRealAddresses(); S.aEdit=0; toast('Address saved'); route();
+    }catch(e){ toast('Could not save address — please try again.'); }
+    return;
+  }
+  if(S.aEdit){ Object.assign(S.addresses.find(a=>a.id==S.aEdit),o); }
+  else{ o.id=Date.now(); S.addresses.push(o); if(!S.selAddr)S.selAddr=o.id; if(!S.defAddr)S.defAddr=o.id; }
+  S.aEdit=0; toast('Address saved'); route();
+}
+function deleteAddr(id){
+  if(sbClient && S.session){
+    sbClient.from('addresses').delete().eq('id',id).eq('user_id',S.session.user.id)
+      .then(()=>loadRealAddresses())
+      .then(()=>{ if(S.selAddr==id) S.selAddr=(S.realAddresses[0]||{}).id; if(S.defAddr==id) S.defAddr=(S.realAddresses[0]||{}).id; route(); })
+      .catch(()=>toast('Could not delete address — please try again.'));
+    return;
+  }
+  S.addresses=S.addresses.filter(x=>x.id!=id); if(S.selAddr==id)S.selAddr=S.addresses[0]&&S.addresses[0].id; if(S.defAddr==id)S.defAddr=S.addresses[0]&&S.addresses[0].id; route();
+}
+function setDefaultAddr(id){
+  if(sbClient && S.session){
+    sbClient.from('addresses').update({is_default:false}).eq('user_id',S.session.user.id)
+      .then(()=>sbClient.from('addresses').update({is_default:true}).eq('id',id))
+      .then(()=>loadRealAddresses())
+      .then(()=>{ toast('Default address set'); route(); })
+      .catch(()=>toast('Could not update the default address — please try again.'));
+    return;
+  }
+  S.defAddr=id; toast('Default address set'); route();
+}
+
+/* ---------- 7. CART / WISHLIST / REVIEWS ---------- */
+function add(id,now){S.cart[id]=(S.cart[id]||0)+1;toast('Added to cart');badges();if(now)go('#/checkout');else route()}
+function qty(id,d){S.cart[id]+=d;if(S.cart[id]<1)delete S.cart[id];route()}
+function tw(id){
+  const p=P[id-1];
+  if(sbClient && S.session && p && p.sbId){
+    if(S.wish[id]){ delete S.wish[id]; sbClient.from('wishlists').delete().eq('user_id',S.session.user.id).eq('product_id',p.sbId).then(()=>{}); }
+    else { S.wish[id]=1; sbClient.from('wishlists').insert({user_id:S.session.user.id,product_id:p.sbId}).then(()=>{}); }
+    badges(); route(); return;
+  }
+  S.wish[id]?delete S.wish[id]:S.wish[id]=1; badges(); route();
+}
+function addRev(id){const p=P[id-1];if(!S.orders.some(o=>o.items.includes(p.name)))return toast('Only customers who bought this can review');if(!$('rvt').value.trim())return toast('Please write a review');R[id].unshift({n:'You',r:+$('rvr').value,t:$('rvt').value,v:1,img:$('rvi').files.length>0});toast('Review posted');route()}
+
+/* ---------- 8. SELLER & ADMIN ACTIONS ---------- */
+function regSeller(){const v=i=>$(i).value.trim(),ph=v('sp').replace(/[\s-]/g,''),e=$('serr');
+if(!v('sn')||!v('sb'))return e.textContent='Please enter your name and business name.';
+if(!/^(0|\+94)7\d{8}$/.test(ph))return e.textContent='Enter a valid Sri Lankan mobile number, e.g. 0771234567.';
+if(!/^\S+@\S+\.\S+$/.test(v('sm')))return e.textContent='Enter a valid email address.';
+S.pending.ps.push([v('sb'),$('sd').value]);notify('Seller application for '+v('sb')+' submitted');S.sellerOk=1;route()}
+
+async function saveP(m){
+  const g=i=>$(i).value.trim();
+  const old=+g('fp');
+  const d=+g('fx')||0;
+  const e=$('ferr');
+  e.textContent='';
+
+  if(!g('fn')||!(old>0)){
+    e.textContent='Enter a product name and a price greater than 0.';
+    return;
+  }
+
+  if(d<0||d>90){
+    e.textContent='Discount must be between 0 and 90%.';
+    return;
+  }
+
+  const stock=+g('fk');
+  if(isNaN(stock)||stock<0){
+    e.textContent='Enter a valid stock quantity (0 or more).';
+    return;
+  }
+
+  if(!sbClient){
+    e.textContent='Supabase connection is not available.';
+    return;
+  }
+
+  const imgFiles=[...($('fimg').files||[])].slice(0,5);
+  const vidFile=$('fvid').files[0];
+
+  let photos=S.edit?(P[S.edit-1].photos||[]):[];
+  let video=S.edit?(P[S.edit-1].video||''):'';
+
+  try{
+    if(imgFiles.length) photos=await Promise.all(imgFiles.map(fileToDataURL));
+    if(vidFile) video=await fileToDataURL(vidFile);
+  }catch(err){
+    toast('Could not read the uploaded file(s)');
+    return;
+  }
+
+  const {data:{user},error:userError}=await sbClient.auth.getUser();
+
+  if(userError||!user){
+    e.textContent='Please login again.';
+    return;
+  }
+
+  const {data:seller,error:sellerError}=await sbClient
+    .from('seller_profiles')
+    .select('id')
+    .eq('user_id',user.id)
+    .maybeSingle();
+
+  if(sellerError||!seller){
+    e.textContent='Seller profile was not found.';
+    return;
+  }
+
+  const categoryName=$('fc').value;
+  const subcategoryName=$('fs').value;
+
+  const {data:category,error:catError}=await sbClient
+    .from('categories')
+    .select('id')
+    .eq('name',categoryName)
+    .maybeSingle();
+
+  if(catError||!category){
+    e.textContent='Selected category was not found.';
+    return;
+  }
+
+  let subcategoryId=null;
+
+  if(subcategoryName){
+    const {data:sub,error:subError}=await sbClient
+      .from('subcategories')
+      .select('id')
+      .eq('category_id',category.id)
+      .eq('name',subcategoryName)
+      .maybeSingle();
+
+    if(subError){
+      e.textContent='Could not find the selected subcategory.';
+      return;
+    }
+
+    if(sub) subcategoryId=sub.id;
+  }
+
+  const st=m=='draft'
+    ?'draft'
+    :(CFG2.approval?'pending':'published');
+
+  const price=Math.round(old*(1-d/100));
+
+  const variations={
+    vs:g('vs'),
+    vc:g('vc'),
+    vm:g('vm'),
+    vo:g('vo')
+  };
+
+  const specifications={
+    text:g('fq')
+  };
+
+  const productData={
+    seller_id:seller.id,
+    category_id:category.id,
+    subcategory_id:subcategoryId,
+    name:g('fn'),
+    description:g('fd'),
+    price,
+    compare_at_price:old,
+    stock,
+    sku:g('fu')||null,
+    brand:g('fb')||null,
+    weight_kg:g('fw')?Number(g('fw')):null,
+    dimensions:g('fm')||null,
+    delivery_info:g('fv')||null,
+    variations,
+    specifications,
+    status:st
+  };
+
+  S.authBusy=true;
+  route();
+
+  try{
+    let savedProduct=null;
+
+    if(S.edit && P[S.edit-1] && P[S.edit-1].sbId){
+
+      const {data,error}=await sbClient
+        .from('products')
+        .update(productData)
+        .eq('id',P[S.edit-1].sbId)
+        .select()
+        .single();
+
+      if(error) throw error;
+      savedProduct=data;
+
+      Object.assign(P[S.edit-1],{
+        ...productData,
+        id:P[S.edit-1].id,
+        sbId:data.id,
+        img:'📦',
+        rating:Number(data.rating_avg)||0,
+        rev:Number(data.rating_count)||0,
+        seller:MY,
+        photos,
+        video,
+        old,
+        price,
+        cat:categoryName,
+        sub:subcategoryName,
+        status:st=='published'?'pub':st
+      });
+
+    }else{
+
+      const {data,error}=await sbClient
+        .from('products')
+        .insert(productData)
+        .select()
+        .single();
+
+      if(error) throw error;
+      savedProduct=data;
+
+      const localProduct={
+        id:P.length+1,
+        sbId:data.id,
+        img:'📦',
+        rating:0,
+        rev:0,
+        seller:MY,
+        bg:'#e5e7eb',
+        name:data.name,
+        cat:categoryName,
+        sub:subcategoryName,
+        desc:data.description||'',
+        old:Number(data.compare_at_price||data.price),
+        price:Number(data.price),
+        stock:data.stock,
+        sku:data.sku||'',
+        brand:data.brand||'',
+        weight:data.weight_kg||'',
+        dim:data.dimensions||'',
+        delivery:data.delivery_info||'',
+        status:st=='published'?'pub':st,
+        photos,
+        video
+      };
+
+      P.push(localProduct);
+      R[P.length]=R[P.length]||[];
+    }
+
+    S.authBusy=false;
+
+    notify(
+      st=='draft'
+        ? 'Draft saved: '+productData.name
+        : st=='pending'
+          ? productData.name+' submitted for admin approval'
+          : productData.name+' is now live'
+    );
+
+    S.edit=0;
+    go('#/seller');
+
+  }catch(err){
+
+    S.authBusy=false;
+
+    e.textContent=(err&&err.message)
+      ? err.message
+      : 'Could not save product to Supabase.';
+
+    route();
+  }
+}
+
+function addCat(){const n=$('ncat').value.replace(/['"<>]/g,'').trim();if(!n||CATS.some(c=>c[0]==n))return toast('Enter a unique category name');CATS.push([n,$('nico').value||'📦']);SUB[n]=$('nsub').value.split(',').map(s=>s.trim()).filter(Boolean);renderNav();route()}
+function setCom(k){const v=+$(k=='c'?'cmcr':'cmsr').value;if(!(v>=0&&v<=50))return toast('Rate must be 0–50%');COM[k=='c'?'cat':'seller'][$(k=='c'?'cmc':'cms').value]=v;toast('Commission rule saved');route()}
+const apS=(i,ok)=>{const s=S.pending.ps.splice(i,1)[0];notify('Seller '+s[0]+(ok?' approved':' rejected'));route()};
+const apP=async(id,ok)=>{
+  const p=P[id-1];
+  if(!p)return;
+
+  let productId=p.sbId;
+
+  if(!productId && sbClient){
+    const {data,error}=await sbClient
+      .from('products')
+      .select('id')
+      .eq('name',p.name)
+      .maybeSingle();
+
+    if(error){
+      toast('Could not find product: '+((error&&error.message)||'Unknown error'));
+      return;
+    }
+
+    productId=data&&data.id;
+  }
+
+  if(sbClient && productId){
+    const {error}=await sbClient
+      .from('products')
+      .update({status:ok?'published':'draft'})
+      .eq('id',productId);
+
+    if(error){
+      toast('Could not update product: '+((error&&error.message)||'Unknown error'));
+      return;
+    }
+  }
+
+  p.status=ok?'pub':'draft';
+  notify(p.name+(ok?' approved and live':' rejected'));
+  route();
+};
+function delCoupon(i){COUPONS.splice(i,1);route()}
+function toggleCoupon(i){COUPONS[i].active=!COUPONS[i].active;route()}
+function saveCoupon(i){const g=id=>$(id).value.trim(),code=g('cc'+i).toUpperCase(),val=+g('cv'+i),min=+g('cm'+i)||0,exp=g('ce'+i),lim=+g('cl'+i)||1,type=$('ct'+i).value,seller=$('cs'+i).value,cat=$('cy'+i).value;
+if(!code)return toast('Enter a coupon code');if(!(val>0))return toast('Enter a discount value greater than 0');
+const o={code,type,value:val,min,exp,limit:lim,used:i>-1&&COUPONS[i]?COUPONS[i].used:0,active:1,seller,cat};
+if(i>-1)COUPONS[i]=o;else COUPONS.push(o);toast('Coupon saved');route()}
+function couponRow(c,i){return `<div class="c" style="margin-bottom:8px"><div class="two" style="gap:8px"><input id="cc${i}" placeholder="CODE" value="${c?c.code:''}"><select id="ct${i}"><option value="pct" ${c&&c.type=='pct'?'selected':''}>Percentage %</option><option value="fixed" ${c&&c.type=='fixed'?'selected':''}>Fixed Rs.</option></select><input id="cv${i}" type="number" placeholder="Value" value="${c?c.value:''}"><input id="cm${i}" type="number" placeholder="Min order Rs." value="${c?c.min:0}"><input id="ce${i}" type="date" value="${c?c.exp:'2026-12-31'}"><input id="cl${i}" type="number" placeholder="Usage limit" value="${c?c.limit:100}">
+<select id="cs${i}"><option value="">Any seller</option>${SELL.map(s=>`<option ${c&&c.seller==s?'selected':''}>${s}</option>`).join('')}</select><select id="cy${i}"><option value="">Any category</option>${CATS.map(x=>`<option ${c&&c.cat==x[0]?'selected':''}>${x[0]}</option>`).join('')}</select></div>
+<div class="row">${c?`<span class="mu" style="flex:2;align-self:center">Used ${c.used}/${c.limit} · ${c.active?'Active':'Inactive'}</span><button onclick="toggleCoupon(${i})">${c.active?'Deactivate':'Activate'}</button><button class="pr" onclick="saveCoupon(${i})">Save</button><button onclick="delCoupon(${i})">Delete</button>`:`<button class="pr" style="flex:1" onclick="saveCoupon(-1)">Create coupon</button>`}</div></div>`}
+function delBanner(i){BANNERS.splice(i,1);route()}
+function toggleBanner(i){BANNERS[i].active=!BANNERS[i].active;route()}
+function saveBanner(i){const g=id=>$(id).value.trim(),o={title:g('bt'+i)||'Untitled banner',sub:g('bs'+i),active:1};if(i>-1)Object.assign(BANNERS[i],o);else BANNERS.push(o);toast('Banner saved');route()}
+function bannerRow(b,i){return `<div class="c" style="margin-bottom:8px"><input id="bt${i}" placeholder="Banner title" value="${b?b.title:''}"><input id="bs${i}" placeholder="Subtitle" value="${b?b.sub:''}">
+<div class="row">${b?`<span class="mu" style="flex:2;align-self:center">${b.active?'Active':'Inactive'}</span><button onclick="toggleBanner(${i})">${b.active?'Deactivate':'Activate'}</button><button class="pr" onclick="saveBanner(${i})">Save</button><button onclick="delBanner(${i})">Delete</button>`:`<button class="pr" style="flex:1" onclick="saveBanner(-1)">Add banner</button>`}</div></div>`}
+function toggleFeatP(id){const x=S.featP.indexOf(id);x<0?S.featP.push(id):S.featP.splice(x,1);route()}
+function toggleFeatS(n){const x=S.featS.indexOf(n);x<0?S.featS.push(n):S.featS.splice(x,1);route()}
+
+/* ---------- 9. CHECKOUT (exactly one placeStep) ---------- */
+function checkoutLiveNote(){
+  if(!sbClient||!S.session) return '<p class="mu">Log in to place a live order recorded in Supabase — right now this order will be recorded locally in this browser only.</p>';
+  const ids=Object.keys(S.cart);
+  if(!ids.length) return '';
+  const allReal = ids.every(id=>P[id-1] && P[id-1].sbId);
+  const realAddr = typeof S.selAddr==='string';
+  if(allReal && realAddr) return '<p class="ok">This order will be recorded live in your Supabase account.</p>';
+  if(!allReal) return '<p class="mu">This order will be recorded locally only — one or more items in your cart aren\'t yet real, database-listed products. Once a seller lists real products in Supabase, orders for them will be recorded live automatically.</p>';
+  return '<p class="mu">This order will be recorded locally only — add a saved address on your account to place a live order.</p>';
+}
+async function placeStep(){
+  if(S.step===1 && !S.selAddr) return toast('Please select or add a delivery address');
+  if(S.step!==3){ S.step++; route(); return; }
+
+  // Step 3 → Place Order. Try a real Supabase order first when eligible:
+  // signed in, every cart item is a real (sbId-bearing) product, and a real
+  // (Supabase) address is selected. Otherwise, record it as a local demo order.
+  const ids=Object.keys(S.cart);
+  const allReal = sbClient && S.session && ids.length && ids.every(id=>P[id-1] && P[id-1].sbId) && typeof S.selAddr==='string';
+  if(allReal){
+    S.authBusy=true; route();
+    try{
+      const items=ids.map(id=>({product_id:P[id-1].sbId, qty:S.cart[id]}));
+      const {error}=await sbClient.rpc('place_order',{p_address_id:S.selAddr,p_items:items,p_payment_method:'cod',p_coupon_code:S.coupon||null,p_delivery_fee:CFG.delivery});
+      S.authBusy=false;
+      if(error) throw error;
+      const t=totalsX(); S.last=t.tot; S.lastLive=true;
+      const a=S.addresses.find(x=>x.id===S.selAddr); S.lastAddr=a?(a.line1+', '+a.city):'–';
+      S.cart={}; S.coupon=null; notify('Order placed – awaiting confirmation'); badges();
+      await loadRealOrders();
+      S.step++; route(); return;
+    }catch(e){
+      S.authBusy=false;
+      toast('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
+      // fall through to the local recording path below, cart stays intact until that succeeds
+    }
+  }
+
+  const t=totalsX(); const a=S.addresses.find(x=>x.id==S.selAddr);
+  S.last=t.tot; S.lastAddr=a?`${a.line1}, ${a.city}`:'–'; S.lastLive=false;
+  const c=S.coupon?findCoupon(S.coupon):null; if(c&&!couponError(c,t.sub)) c.used++;
+  S.orders.unshift({no:'SM-'+(100232+S.orders.length),date:new Date().toISOString().slice(0,10),total:S.last,status:0,items:ids.map(i=>P[i-1].name).join(', '),addr:S.lastAddr});
+  S.cart={}; S.coupon=null; notify('Order '+S.orders[0].no+' placed – awaiting confirmation'); badges();
+  S.step++; route();
+}
+
+/* ---------- 10. VIEWS ---------- */
+const V={
+home(){
+  const hero=BANNERS.find(b=>b.active)||{title:'Everything You Need. All in One Marketplace.',sub:'Discover products from trusted sellers across Sri Lanka.'};
+  const promo=BANNERS.filter(b=>b.active).slice(1);
+  const fp=P.filter(p=>S.featP.includes(p.id)&&live(p)), fs=S.featS.filter(s=>SELL.includes(s));
+  return `<div class="hero"><h1>${hero.title}</h1><p>${hero.sub}</p><button class="pr" onclick="go('#/shop')">Shop Now</button> <button class="ol" onclick="go('#/sell')">Become a Seller</button></div>
+${promo.length?`<div class="tr">${promo.map(b=>`<div class="c cat" style="text-align:left"><b>${b.title}</b><div class="mu">${b.sub}</div></div>`).join('')}</div>`:''}
+<h2>Popular Categories</h2><div class="cg">${CATS.slice(0,6).map(c=>`<div class="c cat" onclick="go('#/shop/${encodeURIComponent(c[0])}')"><i>${c[1]}</i>${c[0]}</div>`).join('')}</div>
+<h2>⚡ Flash Deals</h2><div class="g">${P.filter(live).slice(0,4).map(card).join('')}</div>
+<h2>Featured Products</h2>${fp.length?`<div class="g">${fp.map(card).join('')}</div>`:empty('📦','No featured products selected yet','Manage in Admin','#/admin')}
+<h2>New Arrivals</h2><div class="g">${P.filter(live).slice().sort((a,b)=>b.id-a.id).slice(0,4).map(card).join('')}</div>
+<h2>Best-Selling Products</h2><div class="g">${P.filter(live).slice().sort((a,b)=>b.rev-a.rev).slice(0,4).map(card).join('')}</div>
+<h2>Featured Sellers</h2><div class="g">${fs.map(s=>`<a class="c" style="display:block" href="#/store/${encodeURIComponent(s)}"><b>🏪 ${s}</b><div class="mu">★ 4.7 · ${P.filter(p=>p.seller==s).length} products · 1.2k followers</div><div class="row"><div class="ok">Visit store →</div></div></a>`).join('')||''}</div>
+<h2>Why Shop With SHANMART?</h2><div class="tr">${['🔒 Secure Shopping','✅ Verified Sellers','🚚 Islandwide Delivery','💬 Customer Support','🛍️ Easy Ordering','💵 Cash on Delivery'].map(t=>`<div class="c cat">${t}</div>`).join('')}</div>
+<div class="hero" style="margin-top:22px"><h2 style="margin:0 0 8px">Sell on SHANMART</h2><p>Open your store and reach customers across Sri Lanka.</p><button class="pr" onclick="go('#/sell')">Start Selling</button></div>`;
+},
+shop(a){
+  const t=decodeURIComponent(a||'').toLowerCase(), s=sp().get('s')||'rec';
+  let l=P.filter(p=>live(p)&&(!t||(p.name+p.cat+p.seller+' '+p.sub).toLowerCase().includes(t))&&(!F.cats.length||F.cats.includes(p.cat))&&(!F.sub.length||F.sub.includes(p.sub))&&p.price>=F.min&&p.price<=F.max&&p.rating>=F.rt&&(!F.sl||p.seller==F.sl)&&(!F.stock||p.stock>0));
+  if(s=='lo')l.sort((x,y)=>x.price-y.price);if(s=='hi')l.sort((x,y)=>y.price-x.price);if(s=='rt')l.sort((x,y)=>y.rating-x.rating);if(s=='new')l.sort((x,y)=>y.id-x.id);if(s=='pop')l.sort((x,y)=>y.rev-x.rev);
+  const activeCats=F.cats.length?F.cats:CATS.map(c=>c[0]);
+  const subOpts=[...new Set(activeCats.flatMap(c=>SUB[c]||[]))];
+  const side=`<details class="c" ${innerWidth>=800?'open':''}><summary>Filters</summary><b>Category</b>${CATS.map((c,i)=>`<label style="display:block"><input type="checkbox" style="width:auto" ${F.cats.includes(c[0])?'checked':''} onchange="tf(${i})"> ${c[0]}</label>`).join('')}
+${subOpts.length?'<b>Subcategory</b>'+subOpts.map(subRow).join(''):'<p class="mu">No subcategories for this selection.</p>'}
+<b>Price (Rs.)</b><input type="number" placeholder="Min" value="${F.min||''}" onchange="sf('min',+this.value||0)"><input type="number" placeholder="Max" value="${F.max<1e9?F.max:''}" onchange="sf('max',+this.value||1e9)">
+<b>Rating</b><select onchange="sf('rt',+this.value)">${[0,3,4,4.5].map(r=>`<option value="${r}" ${F.rt==r?'selected':''}>${r?r+'★ & up':'Any'}</option>`).join('')}</select>
+<b>Seller</b><select onchange="sf('sl',this.value)"><option value="">All sellers</option>${SELL.map(x=>`<option ${F.sl==x?'selected':''}>${x}</option>`).join('')}</select>
+<label style="display:block;margin:8px 0"><input type="checkbox" style="width:auto" ${F.stock?'checked':''} onchange="sf('stock',this.checked?1:0)"> In stock only</label>
+<label style="display:block"><input type="checkbox" style="width:auto" checked disabled> Islandwide / COD delivery</label>
+<button style="width:100%;margin-top:8px" onclick="Object.assign(F,{cats:[],sub:[],min:0,max:1e9,rt:0,sl:'',stock:0});route()">Clear filters</button></details>`;
+  return `<div class="mu" style="margin:10px 0">Home › ${t?decodeURIComponent(a):'All Products'}</div><h2 style="margin-top:0">${t?'Results for “'+decodeURIComponent(a)+'”':'All Products'} <span class="mu">(${l.length})</span></h2>
+<div class="fl">${side}<div><select onchange="go('#/shop/${a||''}?s='+this.value)" aria-label="Sort">${[['rec','Recommended'],['new','Newest'],['lo','Price: Low to High'],['hi','Price: High to Low'],['pop','Popular'],['rt','Highest Rated']].map(o=>`<option value="${o[0]}" ${s==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>
+${l.length?`<div class="g">${l.map(card).join('')}</div>`:empty('🔎','No results found. Try another keyword or clear filters.','Clear filters','#/shop')}${t?`<p class="mu">Related categories: ${CATS.slice(0,4).map(c=>`<a class="ok" href="#/shop/${encodeURIComponent(c[0])}">${c[0]}</a>`).join(' · ')}</p>`:''}</div></div>`;
+},
+p(id){
+  const p=P[id-1];
+  if(!p||p.status=='del') return empty('😕','Product unavailable','Back to shop','#/shop');
+  if(p.status=='pending') return `<div class="emp"><span>⏳</span><p><b>${esc(p.name)}</b> is awaiting Admin approval and isn't visible to customers yet.</p><button class="pr" onclick="go('#/seller')">Back to Seller Dashboard</button></div>`;
+  if(p.status=='draft') return `<div class="emp"><span>📝</span><p><b>${esc(p.name)}</b> is still a draft and hasn't been published yet.</p><button class="pr" onclick="go('#/seller')">Back to Seller Dashboard</button></div>`;
+  const rel=P.filter(x=>x.cat==p.cat&&x.id!=id);
+  const gallery=p.photos&&p.photos.length?`<div class="gal">${p.photos.map(u=>`<img src="${u}" alt="${esc(p.name)}">`).join('')}</div>`:'';
+  const vid=p.video?`<video src="${p.video}" controls></video>`:'';
+  const l=R[p.id]||[], avg=l.length?(l.reduce((a,b)=>a+b.r,0)/l.length).toFixed(1):'–';
+  return `<div class="mu" style="margin:10px 0">Home › ${p.cat} › ${esc(p.name)}</div><div class="two"><div><div class="im c" style="background:${p.bg};font-size:110px">${media(p,1)}</div>${gallery}${vid}</div><div class="c"><h2 style="margin-top:0">${esc(p.name)}</h2><div>${stars(p.rating)} ${p.rating} (${p.rev} reviews)</div>
+<div class="pz" style="font-size:26px">${rs(p.price)} <span class="old">${rs(p.old)}</span></div><p class="${p.stock?'ok':''}">${p.stock?'In stock':'Out of stock'}</p>
+<p class="mu">🏪 <a class="ok" href="#/store/${encodeURIComponent(p.seller)}">${p.seller}</a> · ★4.7 · Usually replies within 1 hour</p><p>🚚 Islandwide delivery, 2–5 working days · Cash on Delivery available</p>
+<div class="row"><button class="sc" onclick="add(${p.id})" ${p.stock?'':'disabled'}>Add to Cart</button><button class="pr" onclick="add(${p.id},1)" ${p.stock?'':'disabled'}>Buy Now</button><button onclick="tw(${p.id})">${S.wish[p.id]?'❤️':'♡'}</button></div>
+<p><a class="ok" href="https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent('Hi, I am interested in '+p.name)}" target="_blank" rel="noopener">💬 Chat on WhatsApp</a></p></div></div>
+<div class="c" style="margin-top:14px"><b>Description</b><p>${esc(p.desc)||('Authentic quality from '+esc(p.seller)+'. Carefully packed and delivered islandwide.')}</p></div>
+<div class="c" style="margin-top:14px"><b>Customer Reviews</b> — ${avg}★ (${l.length})${[5,4,3,2,1].map(k=>{const n=l.filter(x=>x.r==k).length;return `<div class="mu">${k}★ <span style="display:inline-block;height:6px;width:${l.length?n/l.length*120:0}px;background:var(--or);border-radius:3px"></span> ${n}</div>`}).join('')}
+${l.map(x=>`<p>${'★'.repeat(x.r)} <b>${esc(x.n)}</b> ${x.v?'<span class="ok">Verified Purchase</span>':''}<br>${esc(x.t)}${x.img?' 📷':''}</p>`).join('')||'<p class="mu">No reviews yet – be the first.</p>'}
+<b>Write a review</b><select id="rvr" aria-label="Rating">${[5,4,3,2,1].map(k=>`<option value="${k}">${'★'.repeat(k)}</option>`).join('')}</select><input id="rvt" placeholder="Your review"><input type="file" accept="image/*" id="rvi" aria-label="Optional image"><button class="pr" onclick="addRev(${p.id})">Submit review</button></div>
+<h2>Related Products</h2><div class="g">${rel.map(card).join('')||'<p class="mu">No related products.</p>'}</div>`;
+},
+wish(){const l=P.filter(p=>S.wish[p.id]);return '<h2>My Wishlist</h2>'+(l.length?`<div class="g">${l.map(card).join('')}</div>`:empty('♡','Your wishlist is empty','Browse products','#/shop'))},
+cart(){
+  const ids=Object.keys(S.cart);
+  if(!ids.length) return empty('🛒','Your cart is empty','Continue Shopping','#/shop');
+  const t=totalsX(); const err=S.coupon?couponError(findCoupon(S.coupon),t.sub):'';
+  return `<h2>Shopping Cart</h2><div class="two"><div>${SELL.map(s=>{const it=ids.filter(i=>P[i-1].seller==s);return it.length?`<div class="c" style="margin-bottom:10px"><b>🏪 ${s}</b>${it.map(i=>{const p=P[i-1];return `<div style="display:flex;gap:10px;align-items:center;margin-top:8px"><div class="thumb im" style="background:${p.bg};font-size:22px;display:grid;place-items:center">${media(p)}</div><div style="flex:1"><div class="nm" style="height:auto">${esc(p.name)}</div><div class="pz">${rs(p.price)}</div></div><button onclick="qty(${i},-1)">−</button>${S.cart[i]}<button onclick="qty(${i},1)">+</button><button onclick="delete S.cart[${i}];badges();route()" aria-label="Remove">🗑</button></div>`}).join('')}</div>`:''}).join('')}</div>
+<div class="c"><b>Order Summary</b><p>Subtotal: ${rs(t.sub)}<br>Delivery: ${rs(t.del)}<br>Discount: −${rs(t.dis)}</p>
+<input id="cp" placeholder="Coupon code (try SHAN10)" value="${S.coupon||''}"><button class="sc" onclick="applyCoupon()">Apply</button>${S.coupon?`<button onclick="S.coupon=null;route()">Remove coupon</button>`:''}
+${err?`<p class="er">${err}</p>`:S.coupon?`<p class="ok">Coupon ${S.coupon} applied.</p>`:''}
+<h2>Total: ${rs(t.tot)}</h2><button class="pr" style="width:100%" onclick="S.step=1;go('#/checkout')">Proceed to Checkout</button><button style="width:100%;margin-top:8px" onclick="go('#/shop')">Continue Shopping</button></div></div>`;
+},
+checkout(){
+  if(!Object.keys(S.cart).length && S.step<4) return empty('🛒','Your cart is empty','Continue Shopping','#/shop');
+  const t=totalsX(), n=S.step;
+  const body=n==1?`<b>Customer information</b><p class="mu">Signed in as ${S.profile.name} · ${S.profile.phone}</p>
+<b>Delivery address</b>${S.addresses.map(a=>`<label style="display:block;border:1px solid var(--bd);border-radius:10px;padding:8px;margin:6px 0"><input type="radio" name="ad" style="width:auto" ${S.selAddr==a.id?'checked':''} onchange="S.selAddr='${a.id}'"> ${a.name}, ${a.line1}, ${a.city}, ${a.district} ${a.postal}${a.id==S.defAddr?' <span class="ok">(Default)</span>':''}</label>`).join('')||'<p class="er">No saved address yet.</p>'}
+<button onclick="go('#/addr')">+ Add / manage addresses</button>`
+  :n==2?`<b>Delivery method</b><p><label><input type="radio" name="d" checked style="width:auto"> Standard courier – ${rs(CFG.delivery)} (2–5 days)</label></p><p><label><input type="radio" name="d" style="width:auto"> Express – Rs. 650 (1–2 days, Colombo)</label></p>`
+  :n==3?`<b>Payment method</b><p><label><input type="radio" name="m" checked style="width:auto"> Cash on Delivery</label></p><p><label><input type="radio" name="m" style="width:auto"> Bank Transfer</label></p><p class="mu"><label><input type="radio" name="m" disabled style="width:auto"> Online Payment (gateway not connected yet)</label></p>${checkoutLiveNote()}`
+  :`<h2 class="ok">✅ Order placed${S.lastLive?'':' (local demo record)'}</h2><p>Order number: <b>${S.orders[0]?S.orders[0].no:''}</b><br>Delivery address: ${S.lastAddr||'–'}<br>Payment: Cash on Delivery<br>Total: <b>${rs(S.last||0)}</b></p><button class="pr" onclick="go('#/account')">Track my order</button>`;
+  return `<h2>Checkout</h2><div class="stp">${[1,2,3,4].map(i=>`<div class="${i<=n?'on':''}"></div>`).join('')}</div><div class="two"><div class="c">${body}${n<4?`<div class="row"><button ${n==1?'disabled':''} onclick="S.step--;route()">Back</button><button class="pr" ${n==1&&!S.addresses.length?'disabled':''} onclick="placeStep()">${n==3?'Place Order':'Continue'}</button></div>`:''}</div>
+${n<4?`<div class="c"><b>Summary</b><p>Subtotal ${rs(t.sub)}<br>Delivery ${rs(t.del)}<br>Discount −${rs(t.dis)}${S.coupon?' ('+S.coupon+')':''}</p><h2>${rs(t.tot)}</h2></div>`:''}</div>`;
+},
+account(){
+  if(sbClient && !S.session) return authForms();
+  const followingCount=Object.values(S.follow).filter(Boolean).length;
+  let ordersHtml;
+  if(S.realOrders && S.realOrders.length){
+    ordersHtml=S.realOrders.map(o=>`<div class="c" style="margin-bottom:10px"><b>${o.no}</b> · ${o.date} · ${rs(o.total)}<div class="mu">${o.items}</div><b class="${o.status==5?'ok':''}">${ST[o.status]||'Pending'}</b></div>`).join('');
+  }else if(S.orders.length){
+    ordersHtml=S.orders.map(o=>`<div class="c" style="margin-bottom:10px"><b>${o.no}</b> · ${o.date} · ${rs(o.total)}<div class="mu">${o.items}${o.addr?' · '+o.addr:''}</div><div class="${o.status==5?'ok':''}" style="margin:6px 0"><b>${ST[o.status]}</b></div><div class="stp">${[0,1,2,3,4,5].map(i=>`<div class="${i<=o.status&&o.status<6?'on':''}"></div>`).join('')}</div></div>`).join('');
+  }else{
+    ordersHtml=empty('📦','No orders yet','Start shopping','#/shop');
+  }
+  return `<h2>My Account</h2>${sbClient&&S.session?`<p class="mu">Signed in as ${S.profile.email}</p>`:''}<div class="tab"><button class="on">Overview</button><button onclick="go('#/profile')">Profile</button><button onclick="go('#/addr')">Saved Addresses</button><button onclick="go('#/wish')">Wishlist</button><button onclick="go('#/notif')">Notifications</button></div>
+<div class="st"><div class="c"><b>${(S.realOrders&&S.realOrders.length)||S.orders.length}</b>Orders</div><div class="c"><b>${Object.keys(S.wish).length}</b>Wishlist</div><div class="c"><b>${followingCount}</b>Following stores</div><div class="c"><b>${S.notes.length}</b>Notifications</div></div>
+<h2>My Orders</h2>${ordersHtml}
+${sbClient&&S.session?`<div class="c" style="margin-top:12px"><button class="sc" style="width:100%" onclick="doLogout()">Sign Out</button></div>`:''}`;
+},
+profile(){return `<h2>My Profile</h2><div class="c"><b>Profile information</b>
+<input id="pn" placeholder="Full name" value="${S.profile.name}"><input id="pp" placeholder="Phone" value="${S.profile.phone}"><input id="pe" placeholder="Email" value="${S.profile.email}">
+<p id="perr" class="er" role="alert"></p><button class="pr" onclick="saveProfile()">Save changes</button></div>`},
+addr(){
+  if(sbClient && S.session && S.realAddresses){ S.addresses=S.realAddresses; S.defAddr=(S.realAddresses.find(a=>a.is_default)||S.realAddresses[0]||{}).id; if(!S.selAddr) S.selAddr=S.defAddr; }
+  const e=S.aEdit?S.addresses.find(a=>a.id==S.aEdit):null;
+  return `<h2>Saved Addresses</h2>${S.addresses.map(a=>`<div class="c" style="margin-bottom:8px"><b>${a.name}</b> ${a.id==S.defAddr?'<span class="ok">Default</span>':''}<br>${a.line1}, ${a.city}, ${a.district} ${a.postal}<br>${a.phone}
+<div class="row"><button onclick="S.aEdit='${a.id}';route()">Edit</button>${a.id!=S.defAddr?`<button onclick="setDefaultAddr('${a.id}')">Set default</button>`:''}<button onclick="deleteAddr('${a.id}')">Delete</button></div></div>`).join('')||'<div class="emp"><span>📍</span><p>No saved addresses yet.</p></div>'}
+<div class="c"><b>${e?'Edit address':'Add new address'}</b><input id="an" placeholder="Full name" value="${e?e.name:S.profile.name}"><input id="aph" placeholder="Phone" value="${e?e.phone:S.profile.phone}"><input id="al1" placeholder="Address line" value="${e?e.line1:''}"><input id="ac" placeholder="City" value="${e?e.city:''}"><select id="ad">${DIST.map(d=>`<option ${e&&e.district==d?'selected':''}>${d}</option>`).join('')}</select><input id="apo" placeholder="Postal code" value="${e?e.postal:''}"><p id="aerr" class="er" role="alert"></p>
+<div class="row"><button class="pr" onclick="saveAddr()">${e?'Save changes':'Add address'}</button>${e?'<button onclick="S.aEdit=0;route()">Cancel</button>':''}</div></div>`;
+},
+notif(){const h=`<h2>Notifications</h2>${S.notes.length?S.notes.map(n=>`<div class="c" style="margin-bottom:8px">${n.u?'🔵 ':''}${n.t}</div>`).join('')+'<button onclick="S.notes=[];bell();route()">Clear all</button>':empty('🔔','No notifications yet','Go shopping','#/shop')}`;S.notes.forEach(n=>n.u=0);setTimeout(bell,0);return h},
+seller(){
+  const l=P.filter(p=>p.seller==MY&&p.status!='del'), pub=l.filter(live), r=COM.seller[MY]??COM.g, sales=482300;
+  return `<h2>Seller Dashboard – ${MY}</h2><div class="tab"><button class="on">Overview</button><button onclick="S.edit=0;go('#/addp')">Add Product</button><button onclick="go('#/store/${encodeURIComponent(MY)}')">My Store</button><button onclick="go('#/sell')">Register Store</button><button onclick="go('#/notif')">Notifications</button></div>
+<div class="st"><div class="c"><b>${rs(sales)}</b>Total Sales</div><div class="c"><b>318</b>Orders</div><div class="c"><b>${rs(sales-Math.round(sales*r/100))}</b>Earnings (after ${r}% commission)</div><div class="c"><b>12</b>Pending Orders</div></div>
+<div class="c ov" style="margin-top:12px"><b>My Products</b><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr>${l.map(p=>`<tr><td>${p.img} ${esc(p.name)}</td><td>${rs(p.price)}</td><td><input type="number" style="width:80px" value="${p.stock}" aria-label="Stock" onchange="P[${p.id-1}].stock=+this.value;toast('Stock updated')"></td><td class="${live(p)?'ok':''}">${p.status||'pub'}</td><td><button onclick="S.edit=${p.id};go('#/addp')">Edit</button> <button onclick="P[${p.id-1}].status='del';route()">Delete</button></td></tr>`).join('')||'<tr><td colspan="5">No products yet</td></tr>'}</table><div class="row"><button class="pr" onclick="S.edit=0;go('#/addp')">+ Add Product</button><button class="sc" onclick="toast('Withdrawal request sent (demo)')">Withdraw</button></div></div>
+<div class="c ov" style="margin-top:12px"><b>Commission breakdown (1 unit per product)</b><table><tr><th>Item</th><th>Price</th><th>Rate</th><th>Commission</th><th>Your earnings</th><th>Delivery</th><th>Discount</th><th>Customer pays</th></tr>${pub.map(p=>`<tr><td>${esc(p.name)}</td><td>${rs(p.price)}</td><td>${rate(p)}%${COM.fixed?' + '+rs(COM.fixed):''}</td><td>${rs(comm(p))}</td><td>${rs(p.price-comm(p))}</td><td>${rs(CFG.delivery)}</td><td>${rs(p.old-p.price)}</td><td>${rs(p.price+CFG.delivery)}</td></tr>`).join('')}</table></div>`;
+},
+addp(){
+  const e=S.edit?P[S.edit-1]:{}, cat=e.cat||CATS[0][0], vl=(i,pl,v)=>`<input id="${i}" placeholder="${pl}" value="${v||''}" aria-label="${pl}">`;
+  return `<h2>${S.edit?'Edit':'Add'} Product</h2><div class="c">${vl('fn','Product name',e.name)}<div class="two" style="gap:8px"><select id="fc" onchange="subs()" aria-label="Category">${CATS.map(c=>`<option ${c[0]==cat?'selected':''}>${c[0]}</option>`).join('')}</select><select id="fs" aria-label="Subcategory"></select></div>
+<textarea id="fd" placeholder="Description">${e.desc||''}</textarea>
+<div class="two" style="gap:8px">${vl('fp','Price (Rs.)',e.old)}${vl('fx','Discount %',e.old?Math.round((1-e.price/e.old)*100):'')}${vl('fk','Stock quantity',e.stock)}${vl('fu','SKU',e.sku)}${vl('fb','Brand',e.brand)}${vl('fw','Weight (kg)',e.weight)}${vl('fm','Dimensions (L×W×H cm)',e.dim)}${vl('fv','Delivery info (e.g. 2–5 days islandwide)',e.delivery)}</div>
+<label class="mu">Images (up to 5, stored in this demo session only) <input id="fimg" type="file" accept="image/*" multiple></label><label class="mu">Video (optional, demo only) <input id="fvid" type="file" accept="video/*"></label>${S.edit&&P[S.edit-1].photos&&P[S.edit-1].photos.length?`<div class="gal">${P[S.edit-1].photos.map(u=>`<img src="${u}">`).join('')}</div>`:''}
+<b>Variations</b><div class="two" style="gap:8px">${vl('vs','Sizes (S,M,L)',e.vs)}${vl('vc','Colors (Red,Blue)',e.vc)}${vl('vm','Models',e.vm)}${vl('vo','Other options',e.vo)}</div>
+<textarea id="fq" placeholder="Specifications – one per line, e.g. Battery: 20h">${e.specs||''}</textarea><p id="ferr" class="er" role="alert"></p>
+<div class="row"><button onclick="saveP('draft')">Save Draft</button><button class="pr" onclick="saveP('pub')">Publish</button></div><p class="mu">${CFG2.approval?'Admin approval is required before published products go live.':'Products go live immediately.'}</p></div>`;
+},
+store(a){
+  const n=decodeURIComponent(a||''); if(!SELL.includes(n)) return empty('🏪','Store not found','Browse products','#/shop');
+  const l=P.filter(p=>p.seller==n&&live(p)), tab=sp().get('t')||'all', fo=S.follow[n]; let x=l.slice();
+  if(tab=='pop')x.sort((a,b)=>b.rev-a.rev); if(tab=='new')x.sort((a,b)=>b.id-a.id); if(tab=='disc')x=x.filter(p=>p.old>p.price).sort((a,b)=>b.old/b.price-a.old/a.price);
+  return `<div class="hero" style="margin-bottom:10px"><div style="font-size:44px;float:left;margin-right:12px" aria-hidden="true">🏪</div><h1 style="margin:0">${n}</h1><p style="margin:0">★ 4.7 · ${1200+(fo?1:0)} followers · ${l.length} products · ${[...new Set(l.map(p=>p.cat))].join(', ')||'–'}</p></div>
+<div class="row"><button class="${fo?'sc':'pr'}" onclick="S.follow['${n}']=!S.follow['${n}'];route()">${fo?'Following ✓':'Follow Store'}</button><a style="flex:1;display:flex" href="https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent('Hi '+n)}" target="_blank" rel="noopener"><button class="sc" style="width:100%">Contact Seller</button></a></div>
+<div class="tab">${[['all','All Products'],['pop','Popular'],['new','Newest'],['disc','Discounts']].map(t=>`<button class="${tab==t[0]?'on':''}" onclick="go('#/store/${encodeURIComponent(n)}?t=${t[0]}')">${t[1]}</button>`).join('')}</div>
+${x.length?`<div class="g">${x.map(card).join('')}</div>`:empty('📦','No products to show here yet','Browse all','#/shop')}<div class="c" style="margin-top:14px"><b>Store reviews</b><p>★★★★★ Fast delivery and well packed. <span class="ok">Verified Purchase</span></p></div>`;
+},
+sell(){
+  if(S.sellerOk) return `<div class="emp"><span>🎉</span><p><b>Application submitted!</b><br>SHANMART Admin will review it. You'll get a notification once approved.</p><button class="pr" onclick="S.sellerOk=0;go('#/seller')">Open Seller Hub</button></div>`;
+  return `<h2>Sell on SHANMART</h2><div class="c"><p class="mu">Register your store. Applications are reviewed by SHANMART Admin.</p>
+${['sn|Full Name','sb|Business Name','sp|Phone (07X XXX XXXX)','sm|Email','sa|Address','si|NIC / Business Reg. No. (as legally required)','sk|Bank name & account no. (for payouts)'].map(x=>{const[i,pl]=x.split('|');return `<input id="${i}" placeholder="${pl}" aria-label="${pl}">`}).join('')}
+<select id="sd" aria-label="District">${DIST.map(d=>`<option>${d}</option>`).join('')}</select><textarea id="sx" placeholder="Store description"></textarea>
+<label class="mu">Store logo <input type="file" accept="image/*"></label><label class="mu">Store banner <input type="file" accept="image/*"></label>
+<p id="serr" class="er" role="alert"></p><button class="pr" style="width:100%" onclick="regSeller()">Submit application</button></div>`;
+},
+help(){return `<h2>Help Center</h2><div class="c"><b>Ordering</b><p>Browse products, add them to your cart, and check out in a few steps. You can pay by Cash on Delivery or Bank Transfer.</p></div>
+<div class="c" style="margin-top:12px"><b>Order Tracking</b><p>Track any order from <a class="ok" href="#/account">My Account → My Orders</a>. Each order shows its current status from Pending through Delivered.</p></div>
+<div class="c" style="margin-top:12px"><b>Delivery</b><p>Standard delivery is islandwide, 2–5 working days. Express delivery (1–2 days) is available in Colombo.</p></div>
+<div class="c" style="margin-top:12px"><b>Returns & Refunds</b><p>See our <a class="ok" href="#/legal/refund">Refund Policy</a> for details on returns.</p></div>
+<div class="c" style="margin-top:12px"><b>Still need help?</b><p><a class="ok" href="#/contact">Contact us</a> and we'll get back to you.</p></div>`},
+contact(){return `<h2>Contact Us</h2><div class="c"><p class="mu">We're here to help with orders, seller accounts, or anything else.</p>
+<p>💬 <a class="ok" href="https://wa.me/${CFG.whatsapp}" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+<p>📧 support@shanmart.example</p>
+<p>📍 Colombo, Sri Lanka</p></div>
+<div class="c" style="margin-top:12px"><b>Send us a message</b><input placeholder="Your name"><input placeholder="Your email" type="email"><textarea placeholder="How can we help?"></textarea><button class="pr" onclick="toast('Message sent (demo) — for a real reply, use WhatsApp above)')">Send</button></div>`},
+legal(a){
+  const page=decodeURIComponent(a||'privacy');
+  const pages={
+    privacy:['Privacy Policy','We collect only the information needed to process your orders and improve SHANMART — such as your name, contact details, delivery address, and order history. We do not sell your personal data to third parties.'],
+    terms:['Terms & Conditions','By using SHANMART you agree to shop in good faith, provide accurate delivery details, and complete payment as agreed at checkout. Sellers are responsible for the accuracy of their own product listings.'],
+    refund:['Refund Policy','If an item arrives damaged, incorrect, or not as described, contact the seller or SHANMART support within 7 days of delivery to arrange a return or refund. Refunds are processed to the original payment method where possible.']
+  };
+  const [title,body]=pages[page]||pages.privacy;
+  return `<h2>${title}</h2><div class="c"><p>${body}</p><p class="mu">This is placeholder legal text for the SHANMART demo — replace with your real policies before going live.</p></div>
+<div class="tab" style="margin-top:12px"><button class="${page=='privacy'?'on':''}" onclick="go('#/legal/privacy')">Privacy</button><button class="${page=='terms'?'on':''}" onclick="go('#/legal/terms')">Terms</button><button class="${page=='refund'?'on':''}" onclick="go('#/legal/refund')">Refund Policy</button></div>`;
+},
+admin(){
+  if(sbClient && S.session && !adminOrdersFetchedOnce){ adminOrdersFetchedOnce=true; loadAdminOrders(); }
+  const pend=P.filter(p=>p.status=='pending'), ar=[]; P.forEach(p=>(R[p.id]||[]).forEach((r,i)=>ar.push([p,i,r])));
+  const row=(t,s,b)=>`<div class="row" style="align-items:center"><span style="flex:3">${t}<br><span class="mu">${s}</span></span>${b}</div>`;
+  const statusSelect=(o)=>`<select onchange="adminSetOrderStatus('${o.id}',this.value)">${ST.map((label,i)=>`<option value="${i}" ${i===o.statusIdx?'selected':''}>${label}</option>`).join('')}</select>`;
+  const liveRows=S.adminOrders.map(o=>`<tr><td>${o.no}</td><td>${o.date}</td><td>${o.items}</td><td>${rs(o.total)}</td><td>${statusSelect(o)}</td></tr>`).join('');
+  const demoRows=S.orders.map(o=>`<tr><td>${o.no}</td><td>${o.date}</td><td>${o.items}</td><td>${rs(o.total)}</td><td>${ST[o.status]} <span class="mu">(demo)</span></td></tr>`).join('');
+  const ordersBody=liveRows||demoRows||'<tr><td colspan="5">No orders yet</td></tr>';
+  return `<h2>Admin Dashboard</h2><div class="st"><div class="c"><b>1,284</b>Customers</div><div class="c"><b>86</b>Sellers</div><div class="c"><b>${P.filter(live).length}</b>Live Products</div><div class="c"><b>${rs(2145000)}</b>Total Sales</div><div class="c"><b>${S.orders.filter(o=>o.status<3).length}</b>Pending Orders</div><div class="c"><b>${S.pending.ps.length}</b>Seller Applications</div><div class="c"><b>${pend.length}</b>Product Approvals</div><div class="c"><b>${CATS.length}</b>Categories</div></div>
+<div class="two" style="margin-top:12px"><div class="c"><b>Seller Applications</b>${S.pending.ps.map((s,i)=>row(s[0],s[1],`<button class="pr" onclick="apS(${i},1)">Approve</button><button onclick="apS(${i},0)">Reject</button>`)).join('')||'<p class="mu">None pending</p>'}</div>
+<div class="c"><b>Product Approvals</b>${pend.map(p=>row(p.name,p.seller+' · '+rs(p.price),`<button class="pr" onclick="apP(${p.id},1)">Approve</button><button onclick="apP(${p.id},0)">Reject</button>`)).join('')||'<p class="mu">None pending</p>'}</div></div>
+<div class="c ov" style="margin-top:12px"><b>Orders</b> <button style="float:right" onclick="loadAdminOrders()">${S.adminOrdersLoading?'Refreshing…':'Refresh'}</button>
+${S.adminOrdersErr?`<p class="er">${S.adminOrdersErr}</p>`:''}
+${!sbClient||!S.session?'<p class="mu">Sign in with an admin account to load and manage live orders — showing local demo orders below.</p>':''}
+<table><tr><th>Order</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th></tr>${ordersBody}</table></div>
+<div class="c ov" style="margin-top:12px"><b>Categories & subcategories</b><table><tr><th>Category</th><th>Subcategories</th><th>Products</th><th></th></tr>${CATS.map((c,i)=>`<tr><td>${c[1]} ${c[0]}</td><td>${(SUB[c[0]]||[]).join(', ')||'–'}</td><td>${P.filter(p=>p.cat==c[0]&&live(p)).length}</td><td><button onclick="CATS.splice(${i},1);renderNav();route()">Delete</button></td></tr>`).join('')}</table>
+<input id="ncat" placeholder="New category name"><input id="nico" placeholder="Icon (emoji)"><input id="nsub" placeholder="Subcategories, comma separated"><button class="pr" onclick="addCat()">Add category</button></div>
+<div class="c" style="margin-top:12px"><b>Commission rules</b><p class="mu">Priority: seller-specific → category-specific → global. Fixed fee is added per item.</p>
+<div class="two" style="gap:8px"><input id="cmg" type="number" value="${COM.g}" aria-label="Global %"><input id="cmf" type="number" value="${COM.fixed}" aria-label="Fixed Rs."></div><button class="pr" onclick="COM.g=+cmg.value||0;COM.fixed=+cmf.value||0;toast('Saved');route()">Save global % & fixed fee</button>
+<div class="two" style="gap:8px;margin-top:8px"><div><select id="cmc">${CATS.map(c=>`<option>${c[0]}</option>`).join('')}</select><input id="cmcr" type="number" placeholder="Category %"><button onclick="setCom('c')">Set category rate</button></div><div><select id="cms">${SELL.map(s=>`<option>${s}</option>`).join('')}</select><input id="cmsr" type="number" placeholder="Seller %"><button onclick="setCom('s')">Set seller rate</button></div></div>
+<p class="mu">Global ${COM.g}% + ${rs(COM.fixed)} · Categories: ${Object.entries(COM.cat).map(e=>e.join(' → ')+'%').join(', ')||'none'} · Sellers: ${Object.entries(COM.seller).map(e=>e.join(' → ')+'%').join(', ')||'none'}</p></div>
+<div class="c ov" style="margin-top:12px"><b>Coupon management</b><p class="mu">Percentage or fixed discount, minimum order, expiry, usage limit, active status, and optional seller- or category-specific scope.</p>${COUPONS.map(couponRow).join('')}<b>Create new coupon</b>${couponRow(null,-1)}</div>
+<div class="c" style="margin-top:12px"><b>Homepage banners</b>${BANNERS.map(bannerRow).join('')}<b>Add banner</b>${bannerRow(null,-1)}</div>
+<div class="two" style="margin-top:12px"><div class="c"><b>Featured Products</b>${P.filter(live).map(p=>`<label style="display:block"><input type="checkbox" style="width:auto" ${S.featP.includes(p.id)?'checked':''} onchange="toggleFeatP(${p.id})"> ${esc(p.name)}</label>`).join('')}</div>
+<div class="c"><b>Featured Sellers</b>${SELL.map(s=>`<label style="display:block"><input type="checkbox" style="width:auto" ${S.featS.includes(s)?'checked':''} onchange="toggleFeatS('${s}')"> ${s}</label>`).join('')}</div></div>
+<div class="c ov" style="margin-top:12px"><b>Review moderation</b><table>${ar.slice(0,6).map(x=>`<tr><td>${esc(x[0].name)}</td><td>${'★'.repeat(x[2].r)} ${esc(x[2].t)}</td><td><button onclick="R[${x[0].id}].splice(${x[1]},1);route()">Remove</button></td></tr>`).join('')||'<tr><td>No reviews</td></tr>'}</table></div>
+<div class="c" style="margin-top:12px"><b>Settings</b><input value="${CFG.whatsapp}" aria-label="WhatsApp number" onchange="CFG.whatsapp=this.value;$('wa').href='https://wa.me/'+this.value"><input type="number" value="${CFG.delivery}" aria-label="Delivery fee" onchange="CFG.delivery=+this.value"><label><input type="checkbox" style="width:auto" ${CFG2.approval?'checked':''} onchange="CFG2.approval=this.checked"> Require product approval</label></div>
+<details class="c" style="margin-top:12px"><summary>Backend-ready data models</summary><div class="ov"><pre style="font-size:12px;white-space:pre-wrap">${Object.entries(MODELS).map(e=>e[0]+': '+e[1]).join('\n')}</pre></div></details>`;
+}
+};
+
+/* ---------- ROUTER (exactly one) ---------- */
+let LH='';
+function route(){
+  if(/access_token=|type=recovery|error_description=/.test(location.hash)){
+    $('app').innerHTML='<div class="emp"><span>🔐</span><p>Completing sign-in…</p></div>';
+    return;
+  }
+  const draw=()=>{
+    try{
+      const [h]=location.hash.slice(2).split('?'), [n,a]=h.split('/'), f=V[n||'home'];
+      $('app').innerHTML=f?f(a):empty('🧭','404 – page not found','Go home','#/');
+      if($('fs')){ subs(); if(S.edit&&P[S.edit-1]&&P[S.edit-1].sub) $('fs').value=P[S.edit-1].sub; }
+    }catch(e){
+      $('app').innerHTML='<div class="emp"><span>📡</span><p>Something went wrong. Check your connection and try again.</p><button class="pr" onclick="route()">Retry</button></div>';
+    }
+    badges(); bell(); try{saveAll()}catch(e){}
+  };
+  if(location.hash!==LH){ LH=location.hash; $('app').innerHTML='<div class="g" aria-busy="true">'+'<div class="c sk"></div>'.repeat(8)+'</div>'; setTimeout(draw,150); }
+  else draw();
+}
+
+/* ---------- INIT (runs once) ---------- */
+loadAll();
+renderNav();
+$('wa').href='https://wa.me/'+CFG.whatsapp;
+addEventListener('hashchange',()=>{route();scrollTo(0,0)});
+addEventListener('offline',()=>toast('You are offline'));
+route();
+if(sbClient){ initAuth(); loadRealCatalogue(); loadRealProducts(); }
+</script></body></html>

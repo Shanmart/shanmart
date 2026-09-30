@@ -295,119 +295,71 @@ async function loadRealCatalogue(){
 }
 async function loadRealProducts(){
   if(!sbClient) return;
+
   try{
     const {data,error}=await sbClient.from('products')
-      .select('id,name,description,price,compare_at_price,stock,status,rating_avg,rating_count,category_id,subcategory_id,categories(name),subcategories(name),seller_profiles(business_name),product_media(storage_path,type,sort_order)')
-      
-    if(error||!data||!data.length) return; // nothing seeded yet — demo catalogue stays exactly as-is
+      .select('id,name,description,price,compare_at_price,stock,status,rating_avg,rating_count,category_id,subcategory_id,categories(name),subcategories(name),seller_profiles(business_name),product_media(storage_path,type,sort_order)');
+
+    if(error || !data || !data.length) return;
+
     data.forEach(row=>{
-      const photos=(row.product_media||[]).filter(m=>m.type==='image').sort((a,b)=>a.sort_order-b.sort_order)
+      const photos=(row.product_media||[])
+        .filter(m=>m.type==='image')
+        .sort((a,b)=>a.sort_order-b.sort_order)
         .map(m=>SB_URL+'/storage/v1/object/public/product-images/'+m.storage_path);
-      const vidRow=(row.product_media||[]).find(m=>m.type==='video');
-      P.push({
-        id:P.length+1, sbId:row.id,
-        name:row.name, desc:row.description||'', price:Number(row.price), old:Number(row.compare_at_price||row.price),
-        cat:(row.categories&&row.categories.name)||'Other', sub:(row.subcategories&&row.subcategories.name)||'',
+
+      const vidRow=(row.product_media||[])
+        .find(m=>m.type==='video');
+
+      const existingIndex=P.findIndex(p=>p.sbId===row.id);
+
+      const mappedProduct={
+        name:row.name,
+        sbId:row.id,
+        desc:row.description||'',
+        price:Number(row.price),
+        old:Number(row.compare_at_price||row.price),
+        cat:(row.categories&&row.categories.name)||'Other',
+        sub:(row.subcategories&&row.subcategories.name)||'',
         seller:(row.seller_profiles&&row.seller_profiles.business_name)||'SHANMART Seller',
-        img:'📦', bg:'#e5e7eb', photos, video:vidRow?SB_URL+'/storage/v1/object/public/product-videos/'+vidRow.storage_path:'',
-        rating:Number(row.rating_avg)||0, rev:Number(row.rating_count)||0, stock:row.stock, status:row.status==='published'?'pub':row.status==='pending'?'pending':'draft'
-      });
-      R[P.length]=R[P.length]||[];
+        img:'📦',
+        bg:'#e5e7eb',
+        photos,
+        video:vidRow
+          ? SB_URL+'/storage/v1/object/public/product-videos/'+vidRow.storage_path
+          : '',
+        rating:Number(row.rating_avg)||0,
+        rev:Number(row.rating_count)||0,
+        stock:row.stock,
+        status:row.status==='published'
+          ? 'pub'
+          : row.status==='pending'
+            ? 'pending'
+            : 'draft'
+      };
+
+      if(existingIndex>=0){
+        mappedProduct.id=P[existingIndex].id;
+        P[existingIndex]={
+          ...P[existingIndex],
+          ...mappedProduct
+        };
+      }else{
+        mappedProduct.id=P.length+1;
+        P.push(mappedProduct);
+      }
+
+      R[P[existingIndex>=0 ? existingIndex : P.length-1].id]=
+        R[P[existingIndex>=0 ? existingIndex : P.length-1].id]||[];
     });
-    renderNav(); route();
-  }catch(e){}
-}
-async function initAuth(){
-  if(!sbClient) return;
-  try{
-    const {data:{session}}=await sbClient.auth.getSession();
-    S.session=session;
-    if(session){ await loadRealProfile(); await loadRealAddresses(); await loadRealOrders(); }
-  }catch(e){}
-  sbClient.auth.onAuthStateChange(async(event,session)=>{
-    S.session=session;
-    sbClient.auth.onAuthStateChange(async(event,session)=>{
-  S.session=session;
 
-  if(event==='PASSWORD_RECOVERY'){
-    S.authView='reset';
-    go('#/account');
-    return;
-  }
-
-  if(session){
-    await loadRealProfile();
-    await loadRealAddresses();
-    await loadRealOrders();
-
-    if(event==='SIGNED_IN' && (!location.hash || location.hash==='#/')){
-      go('#/account');
-    }
-  }
-
-  route();
-});
-route();
+    renderNav();
     route();
-  });
-  route();
-}
 
-/* ---------- auth actions ---------- */
-function setAuthErr(m){ S.authErr=m; route(); }
-async function doSignup(){
-  if(!sbClient) return;
-  const email=$('su_email').value.trim(), pw=$('su_pw').value, name=$('su_name').value.trim();
-  S.authErr=''; S.authMsg='';
-  if(!name) return setAuthErr('Please enter your name.');
-  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
-  if(pw.length<6) return setAuthErr('Password must be at least 6 characters.');
-  S.authBusy=true; route();
-  const {data,error}=await sbClient.auth.signUp({email,password:pw,options:{data:{name},emailRedirectTo:location.origin+location.pathname}});
-  S.authBusy=false;
-  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
-  if(data.session){ S.authMsg='Account created — you are signed in.'; }
-  else { S.authMsg='Account created. Check '+email+' for a confirmation link before logging in.'; S.authView='login'; }
-  route();
-}
-async function doLogin(){
-  if(!sbClient) return;
-  const email=$('li_email').value.trim(), pw=$('li_pw').value;
-  S.authErr=''; S.authMsg='';
-  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
-  if(!pw) return setAuthErr('Enter your password.');
-  S.authBusy=true; route();
-  const {error}=await sbClient.auth.signInWithPassword({email,password:pw});
-  S.authBusy=false;
-  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
-  go('#/account');
-}
-async function doLogout(){
-  if(!sbClient) return;
-  await sbClient.auth.signOut();
-  S.session=null; S.profile=Object.assign({},localDefaultProfile); S.realOrders=[]; S.realAddresses=null;
-  toast('Signed out'); go('#/');
-}
-async function doForgot(){
-  if(!sbClient) return;
-  const email=$('fp_email').value.trim(); S.authErr=''; S.authMsg='';
-  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
-  S.authBusy=true; route();
-  const {error}=await sbClient.auth.resetPasswordForEmail(email,{redirectTo:'https://silver-mochi-638956.netlify.app/'});
-  S.authBusy=false;
-  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
-  S.authMsg='Password reset link sent to '+email+'. Check your inbox.'; route();
-}
-async function doReset(){
-  if(!sbClient) return;
-  const pw=$('np_pw').value; S.authErr=''; S.authMsg='';
-  if(pw.length<6) return setAuthErr('Password must be at least 6 characters.');
-  S.authBusy=true; route();
-  const {error}=await sbClient.auth.updateUser({password:pw});
-  S.authBusy=false;
-  if(error){ S.authErr=friendlyAuthError(error); route(); return; }
-  S.authMsg='Password updated — you are signed in.'; S.authView='login'; go('#/account');
-}
+  }catch(e){
+    console.error('loadRealProducts error:',e);
+  }
+   }
 function authForms(){
   if(S.authView==='reset') return `<h2>Set a New Password</h2><div class="c">
     <input id="np_pw" type="password" placeholder="New password (min 6 characters)">

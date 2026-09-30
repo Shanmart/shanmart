@@ -560,9 +560,9 @@ async function saveP(m){
     .maybeSingle();
 
   if(sellerError||!seller){
-    e.textContent='Seller profile was not found.';
+    e.textContent='Seller profile was not found. USER='+user.id+' ERROR='+(sellerError?.message||'none');
     return;
-  }
+   }
 
   const categoryName=$('fc').value;
   const subcategoryName=$('fs').value;

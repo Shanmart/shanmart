@@ -957,7 +957,7 @@ addp(){
 <label class="mu">Images (up to 5, stored in this demo session only) <input id="fimg" type="file" accept="image/*" multiple></label><label class="mu">Video (optional, demo only) <input id="fvid" type="file" accept="video/*"></label>${S.edit&&P[S.edit-1].photos&&P[S.edit-1].photos.length?`<div class="gal">${P[S.edit-1].photos.map(u=>`<img src="${u}">`).join('')}</div>`:''}
 <b>Variations</b><div class="two" style="gap:8px">${vl('vs','Sizes (S,M,L)',e.vs)}${vl('vc','Colors (Red,Blue)',e.vc)}${vl('vm','Models',e.vm)}${vl('vo','Other options',e.vo)}</div>
 <textarea id="fq" placeholder="Specifications – one per line, e.g. Battery: 20h">${e.specs||''}</textarea><p id="ferr" class="er" role="alert"></p>
-<div class="row"><button onclick="saveP('draft')">Save Draft</button><button class="pr" onclick="alert('PUBLISH BUTTON WORKS')">Publish</button></div>`;
+<div class="row"><button onclick="saveP('draft')">Save Draft</button><button class="pr" onclick="saveP('pub')">Publish</button></div>`;
 },
 store(a){
   const n=decodeURIComponent(a||''); if(!SELL.includes(n)) return empty('🏪','Store not found','Browse products','#/shop');

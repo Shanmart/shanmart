@@ -404,7 +404,7 @@ async function doLogin(){
 
   S.authBusy=true;
   route();
-
+console.log('LOGIN START');
   const {error}=await sbClient.auth.signInWithPassword({
     email:email,
     password:pw

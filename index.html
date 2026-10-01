@@ -391,7 +391,10 @@ function authForms(){
   route();
    }
 async function doLogin(){
-  if(!sbClient) return;
+  if(!sbClient){
+    setAuthErr('Supabase connection is not available.');
+    return;
+  }
 
   const email=$('li_email').value.trim();
   const pw=$('li_pw').value;
@@ -404,22 +407,43 @@ async function doLogin(){
 
   S.authBusy=true;
   route();
-console.log('LOGIN START');
-  const {error}=await sbClient.auth.signInWithPassword({
-    email:email,
-    password:pw
-  });
 
-  S.authBusy=false;
+  try{
+    const result=await Promise.race([
+      sbClient.auth.signInWithPassword({
+        email:email,
+        password:pw
+      }),
+      new Promise(resolve=>setTimeout(
+        ()=>resolve({error:{message:'Login request timed out. Please check your internet connection and try again.'}}),
+        15000
+      ))
+    ]);
 
-  if(error){
-    S.authErr=friendlyAuthError(error);
+    S.authBusy=false;
+
+    if(result.error){
+      S.authErr=friendlyAuthError(result.error);
+      route();
+      return;
+    }
+
+    S.authErr='';
+    S.authMsg='Login successful.';
+    S.session=(await sbClient.auth.getSession()).data.session;
+
+    await loadRealProfile();
+    await loadRealAddresses();
+    await loadRealOrders();
+
+    go('#/account');
+
+  }catch(e){
+    S.authBusy=false;
+    S.authErr=friendlyAuthError(e);
     route();
-    return;
   }
-
-  go('#/account');
-   }
+}
 /* ---------- 6. ADDRESS ACTIONS (one definition each; branch to Supabase when signed in) ---------- */
 function saveProfile(){const n=$('pn').value.trim(),p=$('pp').value.trim().replace(/[\s-]/g,''),e=$('pe').value.trim();
 if(!n)return $('perr').textContent='Please enter your name.';

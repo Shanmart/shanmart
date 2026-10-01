@@ -385,6 +385,11 @@ function authForms(){
     <button class="pr" style="width:100%" onclick="doSignup()" ${S.authBusy?'disabled':''}>${S.authBusy?'Creating account…':'Create Account'}</button>`}
   </div>${!sbClient?'<p class="mu">Live sign-in is temporarily unavailable — the Supabase connection did not load.</p>':''}`;
 }
+   function setAuthErr(msg){
+  S.authErr=msg;
+  S.authBusy=false;
+  route();
+   }
 async function doLogin(){
   if(!sbClient) return;
 

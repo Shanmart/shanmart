@@ -385,7 +385,36 @@ function authForms(){
     <button class="pr" style="width:100%" onclick="doSignup()" ${S.authBusy?'disabled':''}>${S.authBusy?'Creating account…':'Create Account'}</button>`}
   </div>${!sbClient?'<p class="mu">Live sign-in is temporarily unavailable — the Supabase connection did not load.</p>':''}`;
 }
+async function doLogin(){
+  if(!sbClient) return;
 
+  const email=$('li_email').value.trim();
+  const pw=$('li_pw').value;
+
+  S.authErr='';
+  S.authMsg='';
+
+  if(!validEmail(email)) return setAuthErr('Enter a valid email address.');
+  if(!pw) return setAuthErr('Enter your password.');
+
+  S.authBusy=true;
+  route();
+
+  const {error}=await sbClient.auth.signInWithPassword({
+    email:email,
+    password:pw
+  });
+
+  S.authBusy=false;
+
+  if(error){
+    S.authErr=friendlyAuthError(error);
+    route();
+    return;
+  }
+
+  go('#/account');
+   }
 /* ---------- 6. ADDRESS ACTIONS (one definition each; branch to Supabase when signed in) ---------- */
 function saveProfile(){const n=$('pn').value.trim(),p=$('pp').value.trim().replace(/[\s-]/g,''),e=$('pe').value.trim();
 if(!n)return $('perr').textContent='Please enter your name.';

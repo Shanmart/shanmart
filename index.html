@@ -221,6 +221,36 @@ async function loadRealProfile(){
     else S.profile={name:S.session.user.email,phone:'',email:S.session.user.email};
   }catch(e){ S.profile={name:S.session.user.email,phone:'',email:S.session.user.email}; }
 }
+async function initAuth(){
+  if(!sbClient) return;
+
+  try{
+    const {data:{session}}=await sbClient.auth.getSession();
+    S.session=session;
+
+    if(session){
+      await loadRealProfile();
+      await loadRealAddresses();
+      await loadRealOrders();
+    }
+  }catch(e){
+    console.error('initAuth error:',e);
+  }
+
+  sbClient.auth.onAuthStateChange(async(event,session)=>{
+    S.session=session;
+
+    if(session){
+      await loadRealProfile();
+      await loadRealAddresses();
+      await loadRealOrders();
+    }
+
+    route();
+  });
+
+  route();
+   }
 async function loadRealAddresses(){
   if(!sbClient||!S.session) return;
   try{

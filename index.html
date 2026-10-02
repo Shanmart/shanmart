@@ -873,7 +873,7 @@ async function placeStep(){
       S.step++; route(); return;
     }catch(e){
       S.authBusy=false;
-      toast('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
+      alert('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
       // fall through to the local recording path below, cart stays intact until that succeeds
     }
   }

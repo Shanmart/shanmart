@@ -832,14 +832,24 @@ function toggleFeatS(n){const x=S.featS.indexOf(n);x<0?S.featS.push(n):S.featS.s
 /* ---------- 9. CHECKOUT (exactly one placeStep) ---------- */
 function checkoutLiveNote(){
   if(!sbClient||!S.session) return '<p class="mu">Log in to place a live order recorded in Supabase — right now this order will be recorded locally in this browser only.</p>';
+
   const ids=Object.keys(S.cart);
   if(!ids.length) return '';
+
   const allReal = ids.every(id=>P[id-1] && P[id-1].sbId);
-  const realAddr = typeof S.selAddr==='string';
-  if(allReal && realAddr) return '<p class="ok">This order will be recorded live in your Supabase account.</p>';
-  if(!allReal) return '<p class="mu">This order will be recorded locally only — one or more items in your cart aren\'t yet real, database-listed products. Once a seller lists real products in Supabase, orders for them will be recorded live automatically.</p>';
-  return '<p class="mu">This order will be recorded locally only — add a saved address on your account to place a live order.</p>';
-}
+
+  const realAddr =
+    Array.isArray(S.realAddresses) &&
+    S.realAddresses.some(a=>a.id===S.selAddr);
+
+  if(allReal && realAddr)
+    return '<p class="ok">This order will be recorded live in your Supabase account.</p>';
+
+  if(!allReal)
+    return '<p class="mu">This order will be recorded locally only — one or more items in your cart aren\'t yet real, database-listed products.</p>';
+
+  return '<p class="mu">This order will be recorded locally only — select a saved Supabase delivery address to place a live order.</p>';
+   }
 async function placeStep(){
   if(S.step===1 && !S.selAddr) return toast('Please select or add a delivery address');
   if(S.step!==3){ S.step++; route(); return; }

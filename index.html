@@ -953,14 +953,20 @@ ${err?`<p class="er">${err}</p>`:S.coupon?`<p class="ok">Coupon ${S.coupon} appl
 },
 checkout(){
   if(!Object.keys(S.cart).length && S.step<4) return empty('🛒','Your cart is empty','Continue Shopping','#/shop');
+
   const t=totalsX(), n=S.step;
+  const checkoutAddresses=(sbClient && S.session && Array.isArray(S.realAddresses) && S.realAddresses.length)
+    ? S.realAddresses
+    : S.addresses;
+
   const body=n==1?`<b>Customer information</b><p class="mu">Signed in as ${S.profile.name} · ${S.profile.phone}</p>
-<b>Delivery address</b>${S.addresses.map(a=>`<label style="display:block;border:1px solid var(--bd);border-radius:10px;padding:8px;margin:6px 0"><input type="radio" name="ad" style="width:auto" ${S.selAddr==a.id?'checked':''} onchange="S.selAddr='${a.id}'"> ${a.name}, ${a.line1}, ${a.city}, ${a.district} ${a.postal}${a.id==S.defAddr?' <span class="ok">(Default)</span>':''}</label>`).join('')||'<p class="er">No saved address yet.</p>'}
+<b>Delivery address</b>${checkoutAddresses.map(a=>`<label style="display:block;border:1px solid var(--bd);border-radius:10px;padding:8px;margin:6px 0"><input type="radio" name="ad" style="width:auto" ${S.selAddr==a.id?'checked':''} onchange="S.selAddr='${a.id}'"> ${a.name}, ${a.line1}, ${a.city}, ${a.district} ${a.postal}${a.id==S.defAddr?' <span class="ok">(Default)</span>':''}</label>`).join('')||'<p class="er">No saved address yet.</p>'}
 <button onclick="go('#/addr')">+ Add / manage addresses</button>`
   :n==2?`<b>Delivery method</b><p><label><input type="radio" name="d" checked style="width:auto"> Standard courier – ${rs(CFG.delivery)} (2–5 days)</label></p><p><label><input type="radio" name="d" style="width:auto"> Express – Rs. 650 (1–2 days, Colombo)</label></p>`
   :n==3?`<b>Payment method</b><p><label><input type="radio" name="m" checked style="width:auto"> Cash on Delivery</label></p><p><label><input type="radio" name="m" style="width:auto"> Bank Transfer</label></p><p class="mu"><label><input type="radio" name="m" disabled style="width:auto"> Online Payment (gateway not connected yet)</label></p>${checkoutLiveNote()}`
   :`<h2 class="ok">✅ Order placed${S.lastLive?'':' (local demo record)'}</h2><p>Order number: <b>${S.orders[0]?S.orders[0].no:''}</b><br>Delivery address: ${S.lastAddr||'–'}<br>Payment: Cash on Delivery<br>Total: <b>${rs(S.last||0)}</b></p><button class="pr" onclick="go('#/account')">Track my order</button>`;
-  return `<h2>Checkout</h2><div class="stp">${[1,2,3,4].map(i=>`<div class="${i<=n?'on':''}"></div>`).join('')}</div><div class="two"><div class="c">${body}${n<4?`<div class="row"><button ${n==1?'disabled':''} onclick="S.step--;route()">Back</button><button class="pr" ${n==1&&!S.addresses.length?'disabled':''} onclick="placeStep()">${n==3?'Place Order':'Continue'}</button></div>`:''}</div>
+
+  return `<h2>Checkout</h2><div class="stp">${[1,2,3,4].map(i=>`<div class="${i<=n?'on':''}"></div>`).join('')}</div><div class="two"><div class="c">${body}${n<4?`<div class="row"><button ${n==1?'disabled':''} onclick="S.step--;route()">Back</button><button class="pr" ${n==1&&!checkoutAddresses.length?'disabled':''} onclick="placeStep()">${n==3?'Place Order':'Continue'}</button></div>`:''}</div>
 ${n<4?`<div class="c"><b>Summary</b><p>Subtotal ${rs(t.sub)}<br>Delivery ${rs(t.del)}<br>Discount −${rs(t.dis)}${S.coupon?' ('+S.coupon+')':''}</p><h2>${rs(t.tot)}</h2></div>`:''}</div>`;
 },
 account(){

@@ -1140,8 +1140,8 @@ function route(){
       $('app').innerHTML=f?f(a):empty('🧭','404 – page not found','Go home','#/');
       if($('fs')){ subs(); if(S.edit&&P[S.edit-1]&&P[S.edit-1].sub) $('fs').value=P[S.edit-1].sub; }
     }catch(e){
-      $('app').innerHTML='<div class="emp"><span>📡</span><p>Something went wrong. Check your connection and try again.</p><button class="pr" onclick="route()">Retry</button></div>';
-    }
+  $('app').innerHTML='<div class="emp"><span>📡</span><p>ERROR: '+((e&&e.message)||String(e))+'</p><button class="pr" onclick="route()">Retry</button></div>';
+   }
     badges(); bell(); try{saveAll()}catch(e){}
   };
   if(location.hash!==LH){ LH=location.hash; $('app').innerHTML='<div class="g" aria-busy="true">'+'<div class="c sk"></div>'.repeat(8)+'</div>'; setTimeout(draw,150); }

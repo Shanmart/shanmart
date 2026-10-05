@@ -858,25 +858,24 @@ async function placeStep(){
   // signed in, every cart item is a real (sbId-bearing) product, and a real
   // (Supabase) address is selected. Otherwise, record it as a local demo order.
   const ids=Object.keys(S.cart);
-  const allReal = sbClient && S.session && ids.length && ids.every(id=>P[id-1] && P[id-1].sbId) && typeof S.selAddr==='string';
-  if(allReal){
-    S.authBusy=true; route();
-    try{
-      const items=ids.map(id=>({product_id:P[id-1].sbId, qty:S.cart[id]}));
-      const {error}=await sbClient.rpc('place_order',{p_address_id:S.selAddr,p_items:items,p_payment_method:'cod',p_coupon_code:S.coupon||null,p_delivery_fee:CFG.delivery});
-      S.authBusy=false;
-      if(error) throw error;
-      const t=totalsX(); S.last=t.tot; S.lastLive=true;
-      const a=S.addresses.find(x=>x.id===S.selAddr); S.lastAddr=a?(a.line1+', '+a.city):'–';
-      S.cart={}; S.coupon=null; notify('Order placed – awaiting confirmation'); badges();
-      await loadRealOrders();
-      S.step++; route(); return;
-    }catch(e){
-      S.authBusy=false;
-      alert('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
-      // fall through to the local recording path below, cart stays intact until that succeeds
-    }
+  const allReal = sbClient && S.session && ids.length && ids.every(id=>P[id-1] && P[id-1].sbId) && Array.isArray(S.realAddresses) && S.realAddresses.some(a=>a.id===S.selAddr);
+if(allReal){
+  S.authBusy=true; route();
+  try{
+    const items=ids.map(id=>({product_id:P[id-1].sbId, qty:S.cart[id]}));
+    const {error}=await sbClient.rpc('place_order',{p_address_id:S.selAddr,p_items:items,p_payment_method:'cod',p_coupon_code:S.coupon||null,p_delivery_fee:CFG.delivery});
+    S.authBusy=false;
+    if(error) throw error;
+    const t=totalsX(); S.last=t.tot; S.lastLive=true;
+    const a=S.addresses.find(x=>x.id===S.selAddr); S.lastAddr=a?(a.line1+', '+a.city):'–';
+    S.cart={}; S.coupon=null; notify('Order placed – awaiting confirmation'); badges();
+    await loadRealOrders();
+    S.step++; route(); return;
+  }catch(e){
+    S.authBusy=false;
+    alert('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
   }
+   }
 
   const t=totalsX(); const a=S.addresses.find(x=>x.id==S.selAddr);
   S.last=t.tot; S.lastAddr=a?`${a.line1}, ${a.city}`:'–'; S.lastLive=false;

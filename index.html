@@ -830,62 +830,106 @@ function toggleFeatP(id){const x=S.featP.indexOf(id);x<0?S.featP.push(id):S.feat
 function toggleFeatS(n){const x=S.featS.indexOf(n);x<0?S.featS.push(n):S.featS.splice(x,1);route()}
 
 /* ---------- 9. CHECKOUT (exactly one placeStep) ---------- */
-function checkoutLiveNote(){
-  if(!sbClient||!S.session) return '<p class="mu">Log in to place a live order recorded in Supabase — right now this order will be recorded locally in this browser only.</p>';
-
-  const ids=Object.keys(S.cart);
-  if(!ids.length) return '';
-
-  const allReal = ids.every(id=>P[id-1] && P[id-1].sbId);
-
-  const realAddr =
-    Array.isArray(S.realAddresses) &&
-    S.realAddresses.some(a=>a.id===S.selAddr);
-
-  if(allReal && realAddr)
-    return '<p class="ok">This order will be recorded live in your Supabase account.</p>';
-
-  if(!allReal)
-    return '<p class="mu">This order will be recorded locally only — one or more items in your cart aren\'t yet real, database-listed products.</p>';
-
-  return '<p class="mu">This order will be recorded locally only — select a saved Supabase delivery address to place a live order.</p>';
-   }
 async function placeStep(){
   if(S.step===1 && !S.selAddr) return toast('Please select or add a delivery address');
   if(S.step!==3){ S.step++; route(); return; }
 
-  // Step 3 → Place Order. Try a real Supabase order first when eligible:
-  // signed in, every cart item is a real (sbId-bearing) product, and a real
-  // (Supabase) address is selected. Otherwise, record it as a local demo order.
   const ids=Object.keys(S.cart);
-  const allReal = sbClient && S.session && ids.length && ids.every(id=>P[id-1] && P[id-1].sbId) && Array.isArray(S.realAddresses) && S.realAddresses.some(a=>a.id===S.selAddr);
-if(allReal){
-  S.authBusy=true; route();
-  try{
-    const items=ids.map(id=>({product_id:P[id-1].sbId, qty:S.cart[id]}));
-    const {error}=await sbClient.rpc('place_order',{p_address_id:S.selAddr,p_items:items,p_payment_method:'cod',p_coupon_code:S.coupon||null,p_delivery_fee:CFG.delivery});
-    S.authBusy=false;
-    if(error) throw error;
-    const t=totalsX(); S.last=t.tot; S.lastLive=true;
-    const a=S.addresses.find(x=>x.id===S.selAddr); S.lastAddr=a?(a.line1+', '+a.city):'–';
-    S.cart={}; S.coupon=null; notify('Order placed – awaiting confirmation'); badges();
-    await loadRealOrders();
-    S.step++; route(); return;
-  }catch(e){
-    S.authBusy=false;
-    alert('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
+
+  const allReal =
+    sbClient &&
+    S.session &&
+    ids.length &&
+    ids.every(id=>P[id-1] && P[id-1].sbId) &&
+    Array.isArray(S.realAddresses) &&
+    S.realAddresses.some(a=>a.id===S.selAddr);
+
+  if(!allReal){
+    alert(
+      'DEBUG: session='+(!!S.session)+
+      ' | cart='+ids.length+
+      ' | realProduct='+ids.every(id=>P[id-1]&&P[id-1].sbId)+
+      ' | realAddresses='+(Array.isArray(S.realAddresses)?S.realAddresses.length:0)+
+      ' | selectedAddress='+S.selAddr
+    );
   }
-   }
 
-  const t=totalsX(); const a=S.addresses.find(x=>x.id==S.selAddr);
-  S.last=t.tot; S.lastAddr=a?`${a.line1}, ${a.city}`:'–'; S.lastLive=false;
-  const c=S.coupon?findCoupon(S.coupon):null; if(c&&!couponError(c,t.sub)) c.used++;
-  S.orders.unshift({no:'SM-'+(100232+S.orders.length),date:new Date().toISOString().slice(0,10),total:S.last,status:0,items:ids.map(i=>P[i-1].name).join(', '),addr:S.lastAddr});
-  S.cart={}; S.coupon=null; notify('Order '+S.orders[0].no+' placed – awaiting confirmation'); badges();
-  S.step++; route();
+  if(allReal){
+    S.authBusy=true;
+    route();
+
+    try{
+      const items=ids.map(id=>({
+        product_id:P[id-1].sbId,
+        qty:S.cart[id]
+      }));
+
+      const {error}=await sbClient.rpc('place_order',{
+        p_address_id:S.selAddr,
+        p_items:items,
+        p_payment_method:'cod',
+        p_coupon_code:S.coupon||null,
+        p_delivery_fee:CFG.delivery
+      });
+
+      S.authBusy=false;
+
+      if(error) throw error;
+
+      const t=totalsX();
+      S.last=t.tot;
+      S.lastLive=true;
+
+      const a=S.addresses.find(x=>x.id===S.selAddr);
+      S.lastAddr=a?(a.line1+', '+a.city):'–';
+
+      S.cart={};
+      S.coupon=null;
+
+      notify('Order placed – awaiting confirmation');
+      badges();
+
+      await loadRealOrders();
+
+      S.step++;
+      route();
+      return;
+
+    }catch(e){
+      S.authBusy=false;
+      alert('LIVE ORDER ERROR: '+((e&&e.message)||String(e)));
+    }
+  }
+
+  const t=totalsX();
+  const a=(S.realAddresses||[]).find(x=>x.id==S.selAddr) || S.addresses.find(x=>x.id==S.selAddr);
+
+  S.last=t.tot;
+  S.lastAddr=a?`${a.line1}, ${a.city}`:'–';
+  S.lastLive=false;
+
+  const c=S.coupon?findCoupon(S.coupon):null;
+  if(c&&!couponError(c,t.sub)) c.used++;
+
+  S.orders.unshift({
+    no:'SM-'+(100232+S.orders.length),
+    date:new Date().toISOString().slice(0,10),
+    total:S.last,
+    status:0,
+    items:ids.map(i=>P[i-1].name).join(', '),
+    addr:S.lastAddr
+  });
+
+  S.cart={};
+  S.coupon=null;
+
+  notify('Order '+S.orders[0].no+' placed – awaiting confirmation');
+  badges();
+
+  S.step++;
+  route();
 }
-
-/* ---------- 10. VIEWS ---------- */
+   /* ---------- 10. VIEWS ---------- */
 const V={
 home(){
   const hero=BANNERS.find(b=>b.active)||{title:'Everything You Need. All in One Marketplace.',sub:'Discover products from trusted sellers across Sri Lanka.'};
